@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsManager.ViewModels", "Sm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsManager.Visual", "SmsManager.Visual\SmsManager.Visual.csproj", "{1823690C-59DB-4CD2-A312-F2072F6C1F36}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Additions", "Additions", "{A41A18EA-D4DC-44D8-AAA5-1C35E7DC7059}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -15,15 +15,15 @@
     shell:SystemTray.IsVisible="True">
     
     <Grid x:Name="LayoutRoot">
-        <controls:Panorama Title="my application">
+        <controls:Panorama Title="Менеджер смс">
 
             <!--Panorama item one-->
-            <controls:PanoramaItem Header="item1">
+            <controls:PanoramaItem Header="Меню">
                 <Grid/>
             </controls:PanoramaItem>
 
             <!--Panorama item two-->
-            <controls:PanoramaItem Header="item2">
+            <controls:PanoramaItem Header="Категории">
                 <Grid/>
             </controls:PanoramaItem>
         </controls:Panorama>
