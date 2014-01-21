@@ -14,8 +14,8 @@ using SmsManager.DataLayer.Entities;
 namespace SmsManager.DataLayer
 {
     public class SmsDataContext:DataContext{
-        public Table<Category> Categories;
-        public Table<Message> Messages; 
+        public Table<CategoryDetail> Categories;
+        public Table<MessageDetail> Messages; 
 
         public SmsDataContext(string connectionString)
             :base(connectionString){

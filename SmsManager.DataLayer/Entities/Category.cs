@@ -13,14 +13,14 @@ using System.Data.Linq.Mapping;
 namespace SmsManager.DataLayer.Entities
 {
     [Table]
-    public class Category
+    public class Category : IDetail
     {
-        private int _id;
+        private long _id;
         private int _name;
         private byte[] _image;
 
         [Column(IsPrimaryKey = true)]
-        public int Id{
+        public long Id{
             get { return _id; }
             set { _id = value; }
         }

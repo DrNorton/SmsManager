@@ -5,5 +5,9 @@
     <AssemblyPart x:Name="SmsManager.DataLayer" Source="SmsManager.DataLayer.dll" />
     <AssemblyPart x:Name="SmsManager.Infrastructure" Source="SmsManager.Infrastructure.dll" />
     <AssemblyPart x:Name="SmsManager.ViewModels" Source="SmsManager.ViewModels.dll" />
+    <AssemblyPart x:Name="GalaSoft.MvvmLight.WP71" Source="GalaSoft.MvvmLight.WP71.dll" />
+    <AssemblyPart x:Name="Microsoft.Practices.ServiceLocation" Source="Microsoft.Practices.ServiceLocation.dll" />
+    <AssemblyPart x:Name="GalaSoft.MvvmLight.Extras.WP71" Source="GalaSoft.MvvmLight.Extras.WP71.dll" />
+    <AssemblyPart x:Name="System.Windows.Interactivity" Source="System.Windows.Interactivity.dll" />
   </Deployment.Parts>
 </Deployment>
