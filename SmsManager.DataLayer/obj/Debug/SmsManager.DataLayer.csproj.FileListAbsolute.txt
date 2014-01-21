@@ -1,0 +1,4 @@
+C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\SmsManager.DataLayer.dll
+C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\SmsManager.DataLayer.pdb
+C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.DataLayer\obj\Debug\SmsManager.DataLayer.dll
+C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.DataLayer\obj\Debug\SmsManager.DataLayer.pdb

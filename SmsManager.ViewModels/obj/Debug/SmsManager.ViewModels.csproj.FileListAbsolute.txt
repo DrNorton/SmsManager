@@ -1,0 +1,4 @@
+C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.ViewModels\Bin\Debug\SmsManager.ViewModels.dll
+C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.ViewModels\Bin\Debug\SmsManager.ViewModels.pdb
+C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.ViewModels\obj\Debug\SmsManager.ViewModels.dll
+C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.ViewModels\obj\Debug\SmsManager.ViewModels.pdb
