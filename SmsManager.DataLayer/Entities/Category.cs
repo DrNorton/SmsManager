@@ -14,7 +14,7 @@ using SmsManager.Infrastructure.Entities;
 namespace SmsManager.DataLayer.Entities
 {
     [Table]
-    public class Category : ICategoryDetail{
+    public class Category : IDetail{
         private long _id;
         private int _name;
         private byte[] _image;

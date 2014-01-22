@@ -19,11 +19,9 @@ using SmsManager.Infrastructure.Entities;
 
 namespace SmsManager.DataLayer
 {
-   
-
     public class SmsDataContext:DataContext, ISmsDataContext{
-        private IEnumerable<ICategoryDetail> _categories;
-        private IEnumerable<IMessageDetail> _messages;
+        private IEnumerable<Category> _categories;
+        private IEnumerable<Message> _messages;
 
         public SmsDataContext(string connectionString)
             :base(connectionString){
@@ -31,12 +29,12 @@ namespace SmsManager.DataLayer
         }
 
 
-        public IEnumerable<ICategoryDetail> Categories
+        public IEnumerable<Category> Categories
         {
             get { return _categories; }
         }
 
-        public IEnumerable<IMessageDetail> Messages
+        public IEnumerable<Message> Messages
         {
             get { return _messages; }
         }

@@ -13,10 +13,9 @@ using SmsManager.Infrastructure.Entities;
 
 namespace SmsManager.DataLayer.Entities
 {
-  
-
     [Table]
-    public class Message : IMessageDetail{
+    public class Message : IDetail
+    {
         private long _id;
         private string _text;
         private long _usages;

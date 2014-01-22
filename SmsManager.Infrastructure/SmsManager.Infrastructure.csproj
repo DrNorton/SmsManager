@@ -50,21 +50,9 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Dto\ICategoryDto.cs" />
-    <Compile Include="Entities\Dto\IDto.cs" />
-    <Compile Include="Entities\Dto\IMessageDto.cs" />
-    <Compile Include="Entities\ICategoryDetail.cs" />
-    <Compile Include="Entities\IDetail.cs" />
-    <Compile Include="Entities\IMessageDetail.cs" />
-    <Compile Include="IRepositories\ICategoryRepository.cs" />
-    <Compile Include="IRepositories\IMessagesRepository.cs" />
-    <Compile Include="IRepositories\ISmsDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Contracts\IDatabaseService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />

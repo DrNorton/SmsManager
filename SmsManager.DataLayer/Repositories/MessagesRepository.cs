@@ -11,7 +11,8 @@ using SmsManager.Infrastructure.Entities.Dto;
 
 namespace SmsManager.DataLayer.Repositories
 {
-    public class MessagesRepository:BaseRepository<IMessageDetail,IMessageDto>, IMessagesRepository
+    
+    public class MessagesRepository:BaseRepository<Message,MessageDto>, IMessagesRepository
     {
         [Injection]
         public MessagesRepository(ISmsDataContext store)
@@ -20,7 +21,7 @@ namespace SmsManager.DataLayer.Repositories
             
         }
 
-        public override IMessageDetail UpdateEntry(IMessageDto sourceDto, IMessageDetail targetEntity)
+        public override Message UpdateEntry(MessageDto sourceDto, Message targetEntity)
         {
             targetEntity.Id = sourceDto.Id;
             targetEntity.Text = sourceDto.Text;
@@ -28,17 +29,17 @@ namespace SmsManager.DataLayer.Repositories
             return targetEntity;
         }
 
-        public override IMessageDetail CreateEntry(IMessageDto dto)
+        public override Message CreateEntry(MessageDto dto)
         {
             return new Message() { CategoryId = dto.CategoryId, Id = dto.Id, Text = dto.Text, Usages = dto.Usages };
         }
 
-        public override IMessageDto Convert(IMessageDetail entity)
+        public override MessageDto Convert(Message entity)
         {
             return new MessageDto() { CategoryId = entity.Id, Id = entity.Id, Text = entity.Text, Usages = entity.Usages };
         }
 
-        public override IEnumerable<IMessageDto> Search(string pattern)
+        public override IEnumerable<MessageDto> Search(string pattern)
         {
             throw new NotImplementedException();
         }

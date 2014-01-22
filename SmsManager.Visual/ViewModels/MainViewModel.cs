@@ -1,8 +1,7 @@
 ﻿using Phone7.Fx.Ioc;
 using Phone7.Fx.Mvvm;
-using SmsManager.Infrastructure.Services.Contracts;
+using SmsManager.Services;
 using SmsManager.Visual.Views;
-using SmsManager.Visual.Views.Contracts;
 
 namespace SmsManager.Visual.ViewModels
 {

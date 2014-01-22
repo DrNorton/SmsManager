@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SmsManager.DataLayer.Entities;
 using SmsManager.Infrastructure.Entities;
 using SmsManager.Infrastructure.Entities.Dto;
 using SmsManager.Infrastructure.IRepositories;
@@ -21,7 +22,6 @@ namespace SmsManager.DataLayer.Repositories.Base
 
         public IEnumerable<Dto> GetAll()
         {
-       
             return ConvertColl(_store.GetTable<Entity>().ToList());
         }
 

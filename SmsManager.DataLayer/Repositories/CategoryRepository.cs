@@ -10,21 +10,21 @@ using CategoryDto = SmsManager.DataLayer.Dto.CategoryDto;
 
 namespace SmsManager.DataLayer.Repositories
 {
-    public class CategoryRepository: BaseRepository<ICategoryDetail, ICategoryDto>, ICategoryRepository
+ 
+    public class CategoryRepository: BaseRepository<Category, CategoryDto>, ICategoryRepository
     {
-        
         public CategoryRepository(ISmsDataContext store)
             :base(store)
         {
             
         }
 
-        public override IEnumerable<ICategoryDto> Search(string pattern)
+        public override IEnumerable<CategoryDto> Search(string pattern)
         {
             throw new NotImplementedException();
         }
 
-        public override ICategoryDetail UpdateEntry(ICategoryDto sourceDto, ICategoryDetail targetEntity)
+        public override Category UpdateEntry(CategoryDto sourceDto, Category targetEntity)
         {
             targetEntity.Id = sourceDto.Id;
             targetEntity.Image = sourceDto.Image;
@@ -32,12 +32,12 @@ namespace SmsManager.DataLayer.Repositories
             return targetEntity;
         }
 
-        public override ICategoryDetail CreateEntry(ICategoryDto dto)
+        public override Category CreateEntry(CategoryDto dto)
         {
             return new Category(){Id=dto.Id,Image = dto.Image,Name=dto.Name};
         }
 
-        public override ICategoryDto Convert(ICategoryDetail entity)
+        public override CategoryDto Convert(Category entity)
         {
             return new CategoryDto(){Id=entity.Id,Image = entity.Image,Name = entity.Name};
         }

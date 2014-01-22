@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SmsManager.DataLayer.Entities;
 using SmsManager.Infrastructure.Entities;
 using SmsManager.Infrastructure.Entities.Dto;
 
