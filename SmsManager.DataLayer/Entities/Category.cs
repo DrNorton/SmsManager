@@ -9,12 +9,12 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Data.Linq.Mapping;
+using SmsManager.Infrastructure.Entities;
 
 namespace SmsManager.DataLayer.Entities
 {
     [Table]
-    public class Category : IDetail
-    {
+    public class Category : ICategoryDetail{
         private long _id;
         private int _name;
         private byte[] _image;

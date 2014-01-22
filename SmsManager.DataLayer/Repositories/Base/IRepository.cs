@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using SmsManager.DataLayer.Entities;
+﻿using System.Collections.Generic;
+using SmsManager.Infrastructure.Entities;
+using SmsManager.Infrastructure.Entities.Dto;
+
 
 namespace SmsManager.DataLayer.Repositories.Base
 {
-    public interface IRepository<Detail, Dto>
-        where Detail : class,IDetail, new()
-        where Dto : IDto, new()
+    public interface IRepository<Entity,Dto>
     {
-        IEnumerable<Dto> GetAll();
-        Dto GetItem(long id);
-        void InsertOrUpdateRange(IEnumerable<Dto> items);
-        void InsertOrUpdate(Dto dto);
-        void Insert(Dto dto);
-        IEnumerable<Dto> Search(string pattern);
-        void Delete(Dto dto);
-        Detail UpdateEntry(Dto sourceDto, Detail targetEntity);
-        Detail CreateEntry(Dto dto);
+        IEnumerable<IDto> GetAll();
+        IDto GetItem(long id);
+        void InsertOrUpdateRange(IEnumerable<IDto> items);
+        void InsertOrUpdate(IDto dto);
+        void Insert(IDto dto);
+        IEnumerable<IDto> Search(string pattern);
+        void Delete(IDto dto);
+        IDetail UpdateEntry(IDto sourceDto, IDetail targetEntity);
+        IDetail CreateEntry(IDto dto);
 
     }
 }

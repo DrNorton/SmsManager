@@ -1,27 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Linq;
 using System.Linq;
-using System.Text;
-using SmsManager.DataLayer.Entities;
-
+using SmsManager.Infrastructure.Entities;
+using SmsManager.Infrastructure.Entities.Dto;
+using SmsManager.Infrastructure.IRepositories;
 namespace SmsManager.DataLayer.Repositories.Base
 {
-    public abstract class BaseRepository<Entity, Dto> : IRepository<Entity, Dto>
-        where Entity : class,IDetail, new()
+    public abstract class BaseRepository<Entity, Dto> 
+        where Entity : class,IDetail,new()
         where Dto : IDto, new()
     {
-        protected DataContext _store;
+        protected ISmsDataContext _store;
         public delegate void ChangeHandler(Dto story);
         public event ChangeHandler OnChange;
 
-        protected BaseRepository(DataContext store)
+        protected BaseRepository(ISmsDataContext store)
         {
             _store = store;
         }
 
         public IEnumerable<Dto> GetAll()
         {
+       
             return ConvertColl(_store.GetTable<Entity>().ToList());
         }
 
@@ -79,7 +79,8 @@ namespace SmsManager.DataLayer.Repositories.Base
                 yield return Convert(entity);
             }
         }
-        protected abstract Dto Convert(Entity entity);
+
+        public abstract Dto Convert(Entity entity);
 
         public void Insert(Dto dto)
         {

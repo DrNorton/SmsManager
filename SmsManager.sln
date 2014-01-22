@@ -5,11 +5,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsManager.DataLayer", "Sms
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsManager.Infrastructure", "SmsManager.Infrastructure\SmsManager.Infrastructure.csproj", "{A16EEAFE-6E19-4AAC-A45E-B1055A3BD4AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsManager.ViewModels", "SmsManager.ViewModels\SmsManager.ViewModels.csproj", "{3D86D035-1636-40E0-908F-D5A52CA4334F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsManager.Visual", "SmsManager.Visual\SmsManager.Visual.csproj", "{1823690C-59DB-4CD2-A312-F2072F6C1F36}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Additions", "Additions", "{A41A18EA-D4DC-44D8-AAA5-1C35E7DC7059}"
+	ProjectSection(SolutionItems) = preProject
+		db.sdf = db.sdf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dll", "dll", "{5A2A7322-4FC5-4330-877A-D62E83C86D9D}"
+	ProjectSection(SolutionItems) = preProject
+		Phone7.Fx.dll = Phone7.Fx.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsManager.Services", "SmsManager.Services\SmsManager.Services.csproj", "{F8FC3487-1483-46FB-A784-053213C6E817}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phone7.Fx", "Phone7.Fx\Phone7.Fx.csproj", "{B24D96DD-A649-4E97-A9E7-68438C88232F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,18 +35,25 @@ Global
 		{A16EEAFE-6E19-4AAC-A45E-B1055A3BD4AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A16EEAFE-6E19-4AAC-A45E-B1055A3BD4AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A16EEAFE-6E19-4AAC-A45E-B1055A3BD4AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D86D035-1636-40E0-908F-D5A52CA4334F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D86D035-1636-40E0-908F-D5A52CA4334F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D86D035-1636-40E0-908F-D5A52CA4334F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D86D035-1636-40E0-908F-D5A52CA4334F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1823690C-59DB-4CD2-A312-F2072F6C1F36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1823690C-59DB-4CD2-A312-F2072F6C1F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1823690C-59DB-4CD2-A312-F2072F6C1F36}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{1823690C-59DB-4CD2-A312-F2072F6C1F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1823690C-59DB-4CD2-A312-F2072F6C1F36}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1823690C-59DB-4CD2-A312-F2072F6C1F36}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F8FC3487-1483-46FB-A784-053213C6E817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8FC3487-1483-46FB-A784-053213C6E817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8FC3487-1483-46FB-A784-053213C6E817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8FC3487-1483-46FB-A784-053213C6E817}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B24D96DD-A649-4E97-A9E7-68438C88232F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B24D96DD-A649-4E97-A9E7-68438C88232F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B24D96DD-A649-4E97-A9E7-68438C88232F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B24D96DD-A649-4E97-A9E7-68438C88232F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5A2A7322-4FC5-4330-877A-D62E83C86D9D} = {A41A18EA-D4DC-44D8-AAA5-1C35E7DC7059}
 	EndGlobalSection
 EndGlobal

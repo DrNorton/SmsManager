@@ -9,12 +9,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using SmsManager.Infrastructure.Entities;
 
 namespace SmsManager.DataLayer.Entities
 {
+  
+
     [Table]
-    public class Message : IDetail
-    {
+    public class Message : IMessageDetail{
         private long _id;
         private string _text;
         private long _usages;

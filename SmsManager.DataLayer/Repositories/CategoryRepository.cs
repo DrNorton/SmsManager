@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Linq;
-using System.Linq;
-using System.Text;
 using SmsManager.DataLayer.Entities;
 using SmsManager.DataLayer.Repositories.Base;
+using Phone7.Fx.Ioc;
+using SmsManager.Infrastructure.IRepositories;
+using CategoryDto = SmsManager.DataLayer.Dto.CategoryDto;
 
 namespace SmsManager.DataLayer.Repositories
 {
     public class CategoryRepository : BaseRepository<Category, CategoryDto>
     {
-        public CategoryRepository(DataContext store)
+        [Injection]
+        public CategoryRepository(ISmsDataContext store)
             :base(store)
         {
             
@@ -34,7 +35,7 @@ namespace SmsManager.DataLayer.Repositories
             return new Category(){Id=dto.Id,Image = dto.Image,Name=dto.Name};
         }
 
-        protected override CategoryDto Convert(Category entity)
+        public override CategoryDto Convert(Category entity)
         {
             return new CategoryDto(){Id=entity.Id,Image = entity.Image,Name = entity.Name};
         }
