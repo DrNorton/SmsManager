@@ -22,6 +22,7 @@ namespace SmsManager.Services
         public DatabaseService(ICategoryRepository categoryRepository,IMessagesRepository messagesRepository){
             _categoryRepository = categoryRepository;
             _messagesRepository = messagesRepository;
+            var test = _categoryRepository.GetAll();
         }
 
         public Infrastructure.IRepositories.ICategoryRepository CategoryRepository

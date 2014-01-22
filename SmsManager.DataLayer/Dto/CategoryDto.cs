@@ -5,7 +5,8 @@ using SmsManager.Infrastructure.Entities.Dto;
 namespace SmsManager.DataLayer.Dto
 {
     [Table]
-    public class CategoryDto:IDto{
+    public class CategoryDto: ICategoryDto
+    {
         public long Id { get; set; }
         public int Name { get; set; }
         public byte[] Image { get; set; }

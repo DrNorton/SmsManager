@@ -4,7 +4,8 @@ using SmsManager.Infrastructure.Entities.Dto;
 namespace SmsManager.DataLayer.Dto
 {
     [Table]
-    public class MessageDto:IDto{
+    public class MessageDto: IMessageDto
+    {
         public long Id { get; set; }
         public string Text { get; set; }
         public long Usages { get; set; }

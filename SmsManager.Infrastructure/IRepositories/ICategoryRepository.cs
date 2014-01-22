@@ -1,21 +1,21 @@
-﻿using SmsManager.Infrastructure.Entities;
+﻿using System.Collections.Generic;
+using SmsManager.Infrastructure.Entities;
 using SmsManager.Infrastructure.Entities.Dto;
 
 namespace SmsManager.Infrastructure.IRepositories
 {
     public interface ICategoryRepository
     {
-        //IEnumerable<CategoryDto> Search(string pattern);
-        //ICategoryDetail UpdateEntry(CategoryDto sourceDto, ICategoryDetail targetEntity);
-        //ICategoryDetail CreateEntry(CategoryDto dto);
-        IDto Convert(ICategoryDetail entity);
-        
-        //IEnumerable<CategoryDto> GetAll();
-        //CategoryDto GetItem(long id);
-        //void InsertOrUpdateRange(IEnumerable<CategoryDto> items);
-        //void InsertOrUpdate(CategoryDto dto);
-        //void Delete(CategoryDto dto);
-        //void Insert(CategoryDto dto);
+        IEnumerable<ICategoryDto> Search(string pattern);
+        ICategoryDetail UpdateEntry(ICategoryDto sourceDto, ICategoryDetail targetEntity);
+        ICategoryDetail CreateEntry(ICategoryDto dto);
+        ICategoryDto Convert(ICategoryDetail entity);
+        IEnumerable<ICategoryDto> GetAll();
+        ICategoryDto GetItem(long id);
+        void InsertOrUpdateRange(IEnumerable<ICategoryDto> items);
+        void InsertOrUpdate(ICategoryDto dto);
+        void Delete(ICategoryDto dto);
+        void Insert(ICategoryDto dto);
 
     }
 }

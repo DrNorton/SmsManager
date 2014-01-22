@@ -7,8 +7,8 @@ using SmsManager.Infrastructure.IRepositories;
 namespace SmsManager.DataLayer.Repositories.Base
 {
     public abstract class BaseRepository<Entity, Dto> 
-        where Entity : class,IDetail,new()
-        where Dto : IDto, new()
+        where Entity :class,IDetail
+        where Dto : class,IDto
     {
         protected ISmsDataContext _store;
         public delegate void ChangeHandler(Dto story);

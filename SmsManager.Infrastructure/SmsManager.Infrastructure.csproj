@@ -50,7 +50,9 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Dto\ICategoryDto.cs" />
     <Compile Include="Entities\Dto\IDto.cs" />
+    <Compile Include="Entities\Dto\IMessageDto.cs" />
     <Compile Include="Entities\ICategoryDetail.cs" />
     <Compile Include="Entities\IDetail.cs" />
     <Compile Include="Entities\IMessageDetail.cs" />
