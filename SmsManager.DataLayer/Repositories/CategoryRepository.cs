@@ -13,6 +13,7 @@ namespace SmsManager.DataLayer.Repositories
  
     public class CategoryRepository: BaseRepository<Category, CategoryDto>, ICategoryRepository
     {
+        [Injection]
         public CategoryRepository(ISmsDataContext store)
             :base(store)
         {

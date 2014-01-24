@@ -31,7 +31,7 @@
 
             <!--Panorama item two-->
             <controls:PanoramaItem Header="Категории">
-                <Grid/>
+                <ListBox ItemsSource="{Binding Categories}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedCategory,Mode=TwoWay}" />
             </controls:PanoramaItem>
         </controls:Panorama>
     </Grid>

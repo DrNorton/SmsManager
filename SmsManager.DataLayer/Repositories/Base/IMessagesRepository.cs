@@ -20,5 +20,7 @@ namespace SmsManager.Infrastructure.IRepositories
         void InsertOrUpdate(MessageDto dto);
         void Delete(MessageDto dto);
         void Insert(MessageDto dto);
+
+        IEnumerable<MessageDto> GetAllFromCategory(long categoryId);
     }
 }

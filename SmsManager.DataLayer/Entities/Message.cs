@@ -21,7 +21,7 @@ namespace SmsManager.DataLayer.Entities
         private long _usages;
         private long _categoryId;
 
-        [Column]
+       [Column(IsPrimaryKey = true)]
         public long Id{
             get { return _id; }
             set { _id = value; }

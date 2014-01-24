@@ -1,4 +1,5 @@
 ﻿using Phone7.Fx.Ioc;
+using SmsManager.DataLayer.Dto;
 using SmsManager.Infrastructure.IRepositories;
 
 namespace SmsManager.Services
@@ -27,6 +28,10 @@ namespace SmsManager.Services
             get{
                 return _messagesRepository;
             }
+        }
+
+        public System.Collections.Generic.IEnumerable<MessageDto> GetAllMessagesFromCategory(long categoryId){
+            return _messagesRepository.GetAllFromCategory(categoryId);
         }
     }
 }

@@ -11,8 +11,8 @@ namespace SmsManager.DataLayer
 {
     public interface ISmsDataContext
     {
-        IEnumerable<Category> Categories { get; }
-        IEnumerable<Message> Messages { get; }
+        Table<Category> Categories { get; }
+        Table<Message> Messages { get; }
         TextWriter Log { get; set; }
         bool ObjectTrackingEnabled { get; set; }
         bool DeferredLoadingEnabled { get; set; }

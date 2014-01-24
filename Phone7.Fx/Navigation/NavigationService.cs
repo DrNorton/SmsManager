@@ -63,6 +63,10 @@ namespace Phone7.Fx.Navigation
                 if (property.PropertyType == typeof(int))
                 {
                     property.SetValue(viewModel, int.Parse(pair.Value), null);
+                }
+                if (property.PropertyType == typeof(long))
+                {
+                    property.SetValue(viewModel, long.Parse(pair.Value), null);
                 } 
                 else if (property.PropertyType == typeof(bool))
                 {

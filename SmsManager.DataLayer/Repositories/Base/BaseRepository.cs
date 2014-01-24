@@ -27,7 +27,7 @@ namespace SmsManager.DataLayer.Repositories.Base
 
         public Dto GetItem(long id)
         {
-            Entity item = _store.GetTable<Entity>().FirstOrDefault(x=>x.Id==id);
+            Entity item = _store.GetTable<Entity>().FirstOrDefault(x=>x.Id.Equals(id));
             return Convert(item);
 
         }
@@ -66,10 +66,16 @@ namespace SmsManager.DataLayer.Repositories.Base
             _store.SubmitChanges();
         }
 
+        public IEnumerable<Dto> ConvertEntityListToDtoList(IEnumerable<Entity> entities){
+            foreach (var entity in entities){
+                yield return Convert(entity);
+            }
+        } 
 
         public abstract IEnumerable<Dto> Search(string pattern);
         public abstract Entity UpdateEntry(Dto sourceDto, Entity targetEntity);
         public abstract Entity CreateEntry(Dto dto);
+       
 
         protected IEnumerable<Dto> ConvertColl(IEnumerable<Entity> entities)
         {

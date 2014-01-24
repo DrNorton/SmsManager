@@ -66,3 +66,4 @@ C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\Bin\Debug\ja\Sy
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\Bin\Debug\ko\System.Windows.Interactivity.resources.dll
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\Bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\Bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\obj\Debug\Views\CategoryView.g.i.cs

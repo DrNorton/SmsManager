@@ -1,10 +1,9 @@
 ﻿
 namespace SmsManager.Visual.Views
 {
-    public partial class MainView
+    public partial class CategoryView 
     {
-        // Constructor
-        public MainView()
+        public CategoryView()
         {
             InitializeComponent();
         }

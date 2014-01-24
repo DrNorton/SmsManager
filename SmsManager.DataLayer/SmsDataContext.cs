@@ -20,23 +20,21 @@ using SmsManager.Infrastructure.Entities;
 namespace SmsManager.DataLayer
 {
     public class SmsDataContext:DataContext, ISmsDataContext{
-        private IEnumerable<Category> _categories;
-        private IEnumerable<Message> _messages;
 
         public SmsDataContext(string connectionString)
             :base(connectionString){
-            
+          
         }
 
 
-        public IEnumerable<Category> Categories
+        public Table<Category> Categories
         {
-            get { return _categories; }
+            get { return this.GetTable<Category>(); }
         }
 
-        public IEnumerable<Message> Messages
+        public Table<Message> Messages
         {
-            get { return _messages; }
+            get { return this.GetTable<Message>(); }
         }
     }
 }

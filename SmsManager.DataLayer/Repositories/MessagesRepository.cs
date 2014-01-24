@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SmsManager.DataLayer.Dto;
 using SmsManager.DataLayer.Repositories.Base;
 using SmsManager.DataLayer.Entities;
@@ -43,5 +44,9 @@ namespace SmsManager.DataLayer.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<MessageDto> GetAllFromCategory(long categoryId){
+            return base.ConvertEntityListToDtoList(base._store.GetTable<Message>().Where(x => x.CategoryId.Equals(categoryId)));
+        } 
     }
 }

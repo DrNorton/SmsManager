@@ -8,6 +8,7 @@ namespace SmsManager.DataLayer.Entities
 {
     public interface IDetail
     {
+      
         long Id { get; set; }
     }
 }
