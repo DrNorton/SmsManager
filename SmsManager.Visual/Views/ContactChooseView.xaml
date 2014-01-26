@@ -1,0 +1,83 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="SmsManager.Visual.Views.ContactChooseView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:mvvm="clr-namespace:Phone7.Fx.Mvvm;assembly=Phone7.Fx"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True"
+     d:DataContext="{d:DesignData Source=/Views/DesignData/ContactChooseViewSampleData.xaml}">
+    
+    <i:Interaction.Behaviors>
+        <mvvm:ViewModelBehavior/>
+    </i:Interaction.Behaviors>
+    
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="StoryItemTemplate">
+            <StackPanel VerticalAlignment="Top">
+                <Grid Margin="17,0,0,17">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="6*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock TextWrapping="Wrap" Grid.Column="1" Text="{Binding DisplayName}" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+                </Grid>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="StoryGroupHeaderTemplate">
+            <Border Background="Transparent" Padding="5">
+                <Border Background="{StaticResource PhoneAccentBrush}" BorderBrush="{StaticResource PhoneAccentBrush}" BorderThickness="2" Width="62"
+     Height="62" Margin="0,0,18,0" HorizontalAlignment="Left">
+                    <TextBlock Text="{Binding Key}" Foreground="{StaticResource PhoneForegroundBrush}" FontSize="48" Padding="6"
+        FontFamily="{StaticResource PhoneFontFamilySemiLight}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </Border>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="GroupItemsTemplateWp7">
+            <Border Background="{StaticResource PhoneAccentBrush}" Margin="{StaticResource PhoneTouchTargetOverhang}" Padding="{StaticResource PhoneTouchTargetOverhang}">
+                <TextBlock Foreground="{Binding Template.FontColor}" Text="{Binding Key}" Style="{StaticResource PhoneTextLargeStyle}"/>
+            </Border>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="GroupItemsPanelTemplate">
+            <toolkit:WrapPanel Orientation="Horizontal"/>
+        </ItemsPanelTemplate>
+     
+    </phone:PhoneApplicationPage.Resources>
+    
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <toolkit:LongListSelector
+                  IsFlatList="False"
+                  DisplayAllGroups="True"
+                  ItemsSource="{Binding Contacts}"
+                  Background="Transparent"
+           
+                  GroupHeaderTemplate="{StaticResource StoryGroupHeaderTemplate}"
+                  SelectedItem="{Binding SelectedContact,Mode=TwoWay}"
+                  ItemTemplate="{StaticResource StoryItemTemplate}" 
+                GroupItemTemplate="{StaticResource GroupItemsTemplateWp7}" 
+                GroupItemsPanel="{StaticResource GroupItemsPanelTemplate}"
+                
+                  />
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

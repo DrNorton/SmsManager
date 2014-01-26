@@ -2,11 +2,6 @@ C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.DataLay
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\SmsManager.DataLayer.pdb
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.DataLayer\obj\Debug\SmsManager.DataLayer.dll
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.DataLayer\obj\Debug\SmsManager.DataLayer.pdb
-C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\SmsManager.DataLayer.dll
-C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\SmsManager.DataLayer.pdb
-C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\obj\Debug\SmsManager.DataLayer.csprojResolveAssemblyReference.cache
-C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\obj\Debug\SmsManager.DataLayer.dll
-C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\obj\Debug\SmsManager.DataLayer.pdb
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.DataLayer\obj\Debug\SmsManager.DataLayer.csprojResolveAssemblyReference.cache
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\Phone7.Fx.dll
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\System.Windows.Interactivity.dll
@@ -23,6 +18,8 @@ C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.DataLay
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\SmsManager.Infrastructure.dll
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\SmsManager.Infrastructure.pdb
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\Phone7.Fx.pdb
+C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\SmsManager.DataLayer.dll
+C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\SmsManager.DataLayer.pdb
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\Phone7.Fx.dll
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\SmsManager.Infrastructure.dll
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\System.Windows.Interactivity.dll
@@ -38,3 +35,6 @@ C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\ja
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\ko\System.Windows.Interactivity.resources.dll
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\obj\Debug\SmsManager.DataLayer.csprojResolveAssemblyReference.cache
+C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\obj\Debug\SmsManager.DataLayer.dll
+C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\obj\Debug\SmsManager.DataLayer.pdb

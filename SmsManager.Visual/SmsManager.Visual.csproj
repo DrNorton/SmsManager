@@ -48,8 +48,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AppBarUtils">
+      <HintPath>..\packages\AppBarUtils.2.4\lib\wp71\AppBarUtils.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="system.data.linq" />
     <Reference Include="System.Windows" />
@@ -65,10 +71,17 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="BootStrapper.cs" />
+    <Compile Include="Extensions\AlphaKeyGroup.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\ContactChooseViewModel.cs" />
+    <Compile Include="ViewModels\Contracts\IContactChooseViewModel.cs" />
+    <Compile Include="ViewModels\DesignViewModel\DesignContactChooseViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\CategoryView.xaml.cs">
       <DependentUpon>CategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContactChooseView.xaml.cs">
+      <DependentUpon>ContactChooseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -80,16 +93,29 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <DesignData Include="Views\DesignData\CategoryViewSampleData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </DesignData>
     <Page Include="Views\CategoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ContactChooseView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <DesignData Include="Views\DesignData\ContactChooseViewSampleData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </DesignData>
     <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
   </ItemGroup>
@@ -100,7 +126,13 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="README_FIRST.txt" />
     <Content Include="SplashScreenImage.jpg" />
+    <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Phone7.Fx\Phone7.Fx.csproj">

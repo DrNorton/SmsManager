@@ -1,19 +1,11 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Data.Linq;
-using System.Linq;
-using System.Windows;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
 using Phone7.Fx;
 using Phone7.Fx.Ioc;
-using Phone7.Fx.Navigation;
 using SmsManager.DataLayer;
 using SmsManager.DataLayer.Entities;
 using SmsManager.DataLayer.Repositories;
 using SmsManager.Infrastructure.IRepositories;
 using SmsManager.Services;
-using System.Windows.Navigation;
 
 namespace SmsManager.Visual
 {
@@ -30,7 +22,7 @@ namespace SmsManager.Visual
             Container.Current.RegisterType<ICategoryRepository, CategoryRepository>();
             Container.Current.RegisterType<IMessagesRepository, MessagesRepository>();
             Container.Current.RegisterType<IDatabaseService, DatabaseService>();
-          
+            Container.Current.RegisterType<IContactService, ContactService>();
         }
 
         private SmsDataContext CreateDataBaseAndFillTestData(SmsDataContext db)

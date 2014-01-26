@@ -1,7 +1,9 @@
 ﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="SmsManager.Visual" EntryPointType="SmsManager.Visual.App" RuntimeVersion="4.7.50308.0">
   <Deployment.Parts>
     <AssemblyPart x:Name="SmsManager.Visual" Source="SmsManager.Visual.dll" />
+    <AssemblyPart x:Name="AppBarUtils" Source="AppBarUtils.dll" />
     <AssemblyPart x:Name="Microsoft.Phone.Controls" Source="Microsoft.Phone.Controls.dll" />
+    <AssemblyPart x:Name="Microsoft.Phone.Controls.Toolkit" Source="Microsoft.Phone.Controls.Toolkit.dll" />
     <AssemblyPart x:Name="Phone7.Fx" Source="Phone7.Fx.dll" />
     <AssemblyPart x:Name="SmsManager.DataLayer" Source="SmsManager.DataLayer.dll" />
     <AssemblyPart x:Name="SmsManager.Infrastructure" Source="SmsManager.Infrastructure.dll" />

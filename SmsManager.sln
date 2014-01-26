@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsManager.DataLayer", "SmsManager.DataLayer\SmsManager.DataLayer.csproj", "{353F7023-D52B-45F1-B741-7643842172C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsManager.Infrastructure", "SmsManager.Infrastructure\SmsManager.Infrastructure.csproj", "{A16EEAFE-6E19-4AAC-A45E-B1055A3BD4AA}"

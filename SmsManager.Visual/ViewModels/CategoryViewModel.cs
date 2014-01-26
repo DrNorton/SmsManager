@@ -19,6 +19,8 @@ namespace SmsManager.Visual.ViewModels
         private IDatabaseService _dataService;
         private INavigationService _navigationService;
 
+        public DelegateCommand<object> GetContactCommand { get; set; }
+
         public long CurrentCategoryId { get; set; }
 
     
@@ -30,13 +32,21 @@ namespace SmsManager.Visual.ViewModels
         public CategoryViewModel(IDatabaseService dataService, INavigationService navigationService){
             _dataService = dataService;
             _navigationService = navigationService;
+            GetContactCommand=new DelegateCommand<object>(ToContactListNavigatedHandler);
             
+        }
+
+        private void ToContactListNavigatedHandler(object obj)
+        {
+            _navigationService.UriFor<ContactChooseViewModel>().Navigate();
         }
 
         public override void InitalizeData(){
             var allMessages = _dataService.MessagesRepository.GetAll().ToList();
             CurrentCategory=_dataService.CategoryRepository.GetItem(CurrentCategoryId);
             CategoryMessages = _dataService.GetAllMessagesFromCategory(CurrentCategoryId).ToList();
+            
+           
         }
 
         public CategoryDto CurrentCategory

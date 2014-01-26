@@ -20,9 +20,6 @@ C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Service
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Services\Bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Services\Bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Services\Bin\Debug\Phone7.Fx.pdb
-C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Services\obj\Debug\SmsManager.Services.csprojResolveAssemblyReference.cache
-C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Services\obj\Debug\SmsManager.Services.dll
-C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Services\obj\Debug\SmsManager.Services.pdb
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Services\Bin\Debug\SmsManager.Services.dll
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Services\Bin\Debug\SmsManager.Services.pdb
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Services\Bin\Debug\Phone7.Fx.dll
@@ -42,3 +39,6 @@ C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Services\Bin\Debug\ja\
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Services\Bin\Debug\ko\System.Windows.Interactivity.resources.dll
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Services\Bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Services\Bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Services\obj\Debug\SmsManager.Services.csprojResolveAssemblyReference.cache
+C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Services\obj\Debug\SmsManager.Services.dll
+C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Services\obj\Debug\SmsManager.Services.pdb
