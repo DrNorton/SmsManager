@@ -24,6 +24,7 @@ namespace SmsManager.Visual
             Container.Current.RegisterType<IMessagesRepository, MessagesRepository>();
             Container.Current.RegisterType<IDatabaseService, DatabaseService>();
             Container.Current.RegisterType<IContactService, ContactService>();
+            Container.Current.RegisterType<ISmsSenderService, SmsSenderService>();
         }
 
         private SmsDataContext CreateDataBaseAndFillTestData(SmsDataContext db)

@@ -6,8 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Threading;
+using Microsoft.Phone.UserData;
 using Phone7.Fx.Ioc;
 using Phone7.Fx.Mvvm;
+using Phone7.Fx.Navigation;
 using ScaryStories.ViewModel.Extensions;
 using SmsManager.DataLayer.Dto;
 using SmsManager.Services;
@@ -25,15 +27,19 @@ namespace SmsManager.Visual.ViewModels
 
         private List<AlphaKeyGroup<ContactDto>> _contacts;
         private ContactDto _selectedContact;
-        private IContactService _contactService;
+        private readonly IContactService _contactService;
+        private readonly INavigationService _navigationService;
+        private readonly ISmsSenderService _smsSenderService;
+
 
         [Injection]
-        public ContactChooseViewModel(IContactService contactService)
+        public ContactChooseViewModel(IContactService contactService,INavigationService navigationService)
         {
             _contactService = contactService;
+            _navigationService = navigationService;
             _contactService.OnGetComplete += _contactService_OnGetComplete;
+          
         }
-
 
         void _contactService_OnGetComplete(object o, ContactServiceEventArgs e)
         {
@@ -71,8 +77,17 @@ namespace SmsManager.Visual.ViewModels
             set
             {
                 _selectedContact = value;
+                if (value != null)
+                {
+                    NavigateOnTelephoneKindChooser();
+                }
                 base.RaisePropertyChanged(()=>SelectedContact);
             }
+        }
+
+        private void NavigateOnTelephoneKindChooser()
+        {
+            _navigationService.UriFor<TelephoneKindChooseViewModel>().WithParam(x=>x.SelectedContactName,this.SelectedContact.DisplayName).Navigate();
         }
     }
 }

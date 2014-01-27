@@ -19,6 +19,7 @@ namespace SmsManager.Visual.ViewModels
     {
         private IDatabaseService _dataService;
         private INavigationService _navigationService;
+        private IContactService _contactService;
 
         public DelegateCommand<object> GetContactCommand { get; set; }
 
@@ -33,9 +34,12 @@ namespace SmsManager.Visual.ViewModels
         public CategoryViewModel(IDatabaseService dataService, INavigationService navigationService){
             _dataService = dataService;
             _navigationService = navigationService;
+          
             GetContactCommand=new DelegateCommand<object>(ToContactListNavigatedHandler);
             
         }
+
+        
 
         private void ToContactListNavigatedHandler(object obj)
         {

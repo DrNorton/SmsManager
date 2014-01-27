@@ -19,6 +19,7 @@ namespace SmsManager.Services
             if (_contacts == null)
             {
                 var objContacts = new Contacts();
+              
                 objContacts.SearchCompleted += objContacts_SearchCompleted;
                 objContacts.SearchAsync(string.Empty, FilterKind.None, null);
             }
@@ -28,16 +29,39 @@ namespace SmsManager.Services
             }
         }
 
+        public void GetOneContactAsync(string displayName)
+        {
+            if (_contacts == null)
+            {
+                var objContacts = new Contacts();
+                objContacts.SearchCompleted += objContacts_SearchCompleted;
+                objContacts.SearchAsync(string.Empty, FilterKind.None, displayName);
+            }
+            else
+            {
+                OnGetComplete(this, new ContactServiceEventArgs(_contacts.Where(x=>x.DisplayName==displayName)));
+            }
+     
+        }
+
         void objContacts_SearchCompleted(object sender, ContactsSearchEventArgs e)
         {
             if (OnGetComplete != null)
             {
-
-                OnGetComplete(this, new ContactServiceEventArgs(ConvertContactToDto(e.Results)));
+                if (e.State != null)
+                {
+                    var displayName = (string) e.State;
+                    OnGetComplete(this, new ContactServiceEventArgs(_contacts.Where(x => x.DisplayName == displayName)));
+                }
+                else
+                {
+                    _contacts = ConvertContactsToDtoes(e.Results);
+                    OnGetComplete(this, new ContactServiceEventArgs(_contacts));
+                }
             }
         }
 
-        private IEnumerable<ContactDto> ConvertContactToDto(IEnumerable<Contact> contacts )
+        private IEnumerable<ContactDto> ConvertContactsToDtoes(IEnumerable<Contact> contacts )
         {
             foreach (var contact in contacts)
             {
@@ -66,7 +90,9 @@ namespace SmsManager.Services
             foreach (var contactPhoneNumber in telephoneNumbers){
                 yield return new TelephoneDto(){TelephoneNumber = contactPhoneNumber.PhoneNumber,Kind = contactPhoneNumber.Kind.ToString()};
             }
-        } 
+        }
+
+
     }
 
     public class ContactServiceEventArgs:EventArgs

@@ -1,24 +1,22 @@
-﻿using System;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using Microsoft.Phone.Tasks;
+﻿using Microsoft.Phone.Tasks;
+using Phone7.Fx.Ioc;
+using SmsManager.Services.Base;
 using SmsManager.Services.Models;
 
 namespace SmsManager.Services
 {
-    public class SmsSenderService
+    public class SmsSenderService:ISmsSenderService
     {
+        [Injection]
+        public SmsSenderService()
+        {
+            
+        }
+
         public void SendSms(SmsMessage message){
             SmsComposeTask newSms=new SmsComposeTask();
             newSms.Body = message.MessageText;
-            newSms.To = message.Tepephone;
+            newSms.To = message.Telephone;
             newSms.Show();
         }
     }
