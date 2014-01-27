@@ -1,4 +1,4 @@
-﻿namespace SmsManager.Services
+﻿namespace SmsManager.Services.Base
 {
     public interface IContactService
     {

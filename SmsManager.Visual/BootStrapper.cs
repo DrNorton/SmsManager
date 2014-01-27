@@ -6,6 +6,7 @@ using SmsManager.DataLayer.Entities;
 using SmsManager.DataLayer.Repositories;
 using SmsManager.Infrastructure.IRepositories;
 using SmsManager.Services;
+using SmsManager.Services.Base;
 
 namespace SmsManager.Visual
 {

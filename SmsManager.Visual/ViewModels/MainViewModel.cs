@@ -5,6 +5,7 @@ using Phone7.Fx.Mvvm;
 using Phone7.Fx.Navigation;
 using SmsManager.DataLayer.Dto;
 using SmsManager.Services;
+using SmsManager.Services.Base;
 using SmsManager.Visual.Views;
 
 namespace SmsManager.Visual.ViewModels

@@ -1,24 +1,24 @@
-﻿<xapCache source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\Bin\Debug\SmsManager.Visual.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="27.01.2014 0:29:56">
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="22.01.2014 21:33:34" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\Background.png" archivePath="Background.png" lastWriteTime="21.01.2014 20:30:08" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="21.01.2014 20:30:08" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\obj\Debug\SmsManager.Visual.dll" archivePath="SmsManager.Visual.dll" lastWriteTime="27.01.2014 0:29:54" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\packages\AppBarUtils.2.4\lib\wp71\AppBarUtils.dll" archivePath="AppBarUtils.dll" lastWriteTime="27.01.2014 0:03:20" />
-  <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.1\Libraries\Silverlight\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="06.07.2012 1:40:16" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\packages\WPtoolkit.4.2013.08.16\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll" archivePath="Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="25.01.2014 15:43:55" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\Phone7.Fx\Bin\Debug\Phone7.Fx.dll" archivePath="Phone7.Fx.dll" lastWriteTime="26.01.2014 23:47:30" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\SmsManager.DataLayer.dll" archivePath="SmsManager.DataLayer.dll" lastWriteTime="26.01.2014 23:47:33" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Infrastructure\Bin\Debug\SmsManager.Infrastructure.dll" archivePath="SmsManager.Infrastructure.dll" lastWriteTime="26.01.2014 23:47:26" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Services\Bin\Debug\SmsManager.Services.dll" archivePath="SmsManager.Services.dll" lastWriteTime="26.01.2014 23:47:36" />
-  <file source="C:\Program Files (x86)\Microsoft SDKs\Expression\Blend\Windows Phone\v7.1\Libraries\System.Windows.Interactivity.dll" archivePath="System.Windows.Interactivity.dll" lastWriteTime="17.08.2011 2:48:22" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\README_FIRST.txt" archivePath="README_FIRST.txt" lastWriteTime="25.01.2014 15:43:56" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="21.01.2014 20:30:08" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\Toolkit.Content\ApplicationBar.Add.png" archivePath="Toolkit.Content\ApplicationBar.Add.png" lastWriteTime="25.01.2014 15:43:56" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\Toolkit.Content\ApplicationBar.Cancel.png" archivePath="Toolkit.Content\ApplicationBar.Cancel.png" lastWriteTime="25.01.2014 15:43:56" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\Toolkit.Content\ApplicationBar.Check.png" archivePath="Toolkit.Content\ApplicationBar.Check.png" lastWriteTime="25.01.2014 15:43:56" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\Toolkit.Content\ApplicationBar.Delete.png" archivePath="Toolkit.Content\ApplicationBar.Delete.png" lastWriteTime="25.01.2014 15:43:56" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\Toolkit.Content\ApplicationBar.Select.png" archivePath="Toolkit.Content\ApplicationBar.Select.png" lastWriteTime="25.01.2014 15:43:56" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="27.01.2014 0:11:13" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\Bin\Debug\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="21.01.2014 20:30:08" />
-  <file source="C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\Bin\Debug\Background.png" archivePath="Background.png" lastWriteTime="21.01.2014 20:30:08" />
+﻿<xapCache source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\Bin\Debug\SmsManager.Visual.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="27.01.2014 15:36:48">
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="22.01.2014 13:47:21" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\Background.png" archivePath="Background.png" lastWriteTime="21.01.2014 15:14:01" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="21.01.2014 15:14:01" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\obj\Debug\SmsManager.Visual.dll" archivePath="SmsManager.Visual.dll" lastWriteTime="27.01.2014 15:36:47" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\packages\AppBarUtils.2.4\lib\wp71\AppBarUtils.dll" archivePath="AppBarUtils.dll" lastWriteTime="27.01.2014 11:10:45" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.1\Libraries\Silverlight\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="19.03.2012 16:29:06" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\packages\WPtoolkit.4.2013.08.16\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll" archivePath="Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="27.01.2014 11:10:46" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\Phone7.Fx\Bin\Debug\Phone7.Fx.dll" archivePath="Phone7.Fx.dll" lastWriteTime="27.01.2014 11:10:44" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.DataLayer\Bin\Debug\SmsManager.DataLayer.dll" archivePath="SmsManager.DataLayer.dll" lastWriteTime="27.01.2014 12:55:45" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Infrastructure\Bin\Debug\SmsManager.Infrastructure.dll" archivePath="SmsManager.Infrastructure.dll" lastWriteTime="27.01.2014 11:10:45" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Services\Bin\Debug\SmsManager.Services.dll" archivePath="SmsManager.Services.dll" lastWriteTime="27.01.2014 15:36:47" />
+  <file source="c:\Program Files (x86)\Microsoft SDKs\Expression\Blend\Windows Phone\v7.1\Libraries\System.Windows.Interactivity.dll" archivePath="System.Windows.Interactivity.dll" lastWriteTime="17.08.2011 2:48:22" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\README_FIRST.txt" archivePath="README_FIRST.txt" lastWriteTime="27.01.2014 11:10:45" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="21.01.2014 15:14:01" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\Toolkit.Content\ApplicationBar.Add.png" archivePath="Toolkit.Content\ApplicationBar.Add.png" lastWriteTime="27.01.2014 11:10:45" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\Toolkit.Content\ApplicationBar.Cancel.png" archivePath="Toolkit.Content\ApplicationBar.Cancel.png" lastWriteTime="27.01.2014 11:10:45" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\Toolkit.Content\ApplicationBar.Check.png" archivePath="Toolkit.Content\ApplicationBar.Check.png" lastWriteTime="27.01.2014 11:10:45" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\Toolkit.Content\ApplicationBar.Delete.png" archivePath="Toolkit.Content\ApplicationBar.Delete.png" lastWriteTime="27.01.2014 11:10:45" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\Toolkit.Content\ApplicationBar.Select.png" archivePath="Toolkit.Content\ApplicationBar.Select.png" lastWriteTime="27.01.2014 11:10:45" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="27.01.2014 11:10:45" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\Bin\Debug\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="21.01.2014 15:14:01" />
+  <file source="C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\Bin\Debug\Background.png" archivePath="Background.png" lastWriteTime="21.01.2014 15:14:01" />
 </xapCache>

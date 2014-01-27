@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SmsManager.DataLayer.Dto;
 using SmsManager.Infrastructure.IRepositories;
 
-namespace SmsManager.Services
+namespace SmsManager.Services.Base
 {
     public interface IDatabaseService
     {

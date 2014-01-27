@@ -15,7 +15,7 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True"
-     d:DataContext="{d:DesignData Source=/Views/DesignData/ContactChooseViewSampleData.xaml}">
+     d:DataContext="{d:DesignData Source=/Views/DesignData/ContactChooseViewSampleData.xaml}" d:DesignHeight="768" d:DesignWidth="480">
     
     <i:Interaction.Behaviors>
         <mvvm:ViewModelBehavior/>
@@ -29,7 +29,7 @@
                         <ColumnDefinition Width="4*"/>
                         <ColumnDefinition Width="6*"/>
                     </Grid.ColumnDefinitions>
-
+                    <Image Source="{Binding Photo}"/>
                     <TextBlock TextWrapping="Wrap" Grid.Column="1" Text="{Binding DisplayName}" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeLarge}"/>
                 </Grid>
             </StackPanel>
@@ -60,8 +60,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-
+        
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <toolkit:LongListSelector
@@ -69,14 +68,12 @@
                   DisplayAllGroups="True"
                   ItemsSource="{Binding Contacts}"
                   Background="Transparent"
-           
                   GroupHeaderTemplate="{StaticResource StoryGroupHeaderTemplate}"
                   SelectedItem="{Binding SelectedContact,Mode=TwoWay}"
                   ItemTemplate="{StaticResource StoryItemTemplate}" 
-                GroupItemTemplate="{StaticResource GroupItemsTemplateWp7}" 
-                GroupItemsPanel="{StaticResource GroupItemsPanelTemplate}"
-                
-                  />
+                  GroupItemTemplate="{StaticResource GroupItemsTemplateWp7}" 
+                  GroupItemsPanel="{StaticResource GroupItemsPanelTemplate}"
+            />
         </Grid>
     </Grid>
 

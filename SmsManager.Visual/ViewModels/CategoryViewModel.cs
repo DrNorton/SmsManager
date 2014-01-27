@@ -9,6 +9,7 @@ using Phone7.Fx.Mvvm;
 using Phone7.Fx.Navigation;
 using SmsManager.DataLayer.Dto;
 using SmsManager.Services;
+using SmsManager.Services.Base;
 using SmsManager.Visual.Views;
 
 namespace SmsManager.Visual.ViewModels
@@ -42,11 +43,8 @@ namespace SmsManager.Visual.ViewModels
         }
 
         public override void InitalizeData(){
-            var allMessages = _dataService.MessagesRepository.GetAll().ToList();
             CurrentCategory=_dataService.CategoryRepository.GetItem(CurrentCategoryId);
             CategoryMessages = _dataService.GetAllMessagesFromCategory(CurrentCategoryId).ToList();
-            
-           
         }
 
         public CategoryDto CurrentCategory

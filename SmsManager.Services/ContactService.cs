@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Media.Imaging;
 using Microsoft.Phone.UserData;
+using SmsManager.Services.Base;
 using SmsManager.Services.Models;
 
 namespace SmsManager.Services
@@ -43,10 +45,28 @@ namespace SmsManager.Services
             }
         }
 
-        private ContactDto ConvertContactToDto(Contact contact)
-        {
-            return new ContactDto(){DisplayName = contact.DisplayName,Telephones = contact.PhoneNumbers.Select(x=>new TelephoneDto{TelephoneNumber = x.PhoneNumber,Kind = x.Kind.ToString()})};
+        private ContactDto ConvertContactToDto(Contact contact){
+            var photo = GetPicture(contact);
+            var dto= new ContactDto(){DisplayName = contact.DisplayName,
+                Telephones = ConvertPhoneNumbers(contact.PhoneNumbers).ToList(),
+                Photo = photo};
+            return dto;
         }
+
+        private BitmapImage GetPicture(Contact contact)
+        {
+            BitmapImage img = new BitmapImage();
+            var imageStream = contact.GetPicture();
+            if (imageStream == null) return null;
+            img.SetSource(imageStream);
+            return img;
+        }
+
+        private IEnumerable<TelephoneDto> ConvertPhoneNumbers(IEnumerable<ContactPhoneNumber> telephoneNumbers){
+            foreach (var contactPhoneNumber in telephoneNumbers){
+                yield return new TelephoneDto(){TelephoneNumber = contactPhoneNumber.PhoneNumber,Kind = contactPhoneNumber.Kind.ToString()};
+            }
+        } 
     }
 
     public class ContactServiceEventArgs:EventArgs

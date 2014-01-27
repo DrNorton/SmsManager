@@ -1,6 +1,7 @@
 ﻿using Phone7.Fx.Ioc;
 using SmsManager.DataLayer.Dto;
 using SmsManager.Infrastructure.IRepositories;
+using SmsManager.Services.Base;
 
 namespace SmsManager.Services
 {

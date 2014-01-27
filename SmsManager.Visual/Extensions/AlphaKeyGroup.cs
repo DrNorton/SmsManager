@@ -6,7 +6,7 @@ namespace ScaryStories.ViewModel.Extensions
 {
     public class AlphaKeyGroup<T> : List<T>
     {
-        static string SortedLocalGrouping = "#абвгдеёжзиклмнопрстуфхцчшщъыьэюя";
+        static string SortedLocalGrouping = "#abcdefghijklmnopqrstuvwxyzабвгдеёжзиклмнопрстуфхцчшщъыьэюя";
         /// <summary>
         /// The delegate that is used to get the key information.
         /// </summary>

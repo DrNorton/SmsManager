@@ -11,6 +11,7 @@ using Phone7.Fx.Mvvm;
 using ScaryStories.ViewModel.Extensions;
 using SmsManager.DataLayer.Dto;
 using SmsManager.Services;
+using SmsManager.Services.Base;
 using SmsManager.Services.Models;
 using SmsManager.Visual.ViewModels.Contracts;
 using SmsManager.Visual.Views;
@@ -20,7 +21,7 @@ namespace SmsManager.Visual.ViewModels
     [ViewModel(typeof(ContactChooseView))]
     public class ContactChooseViewModel:ViewModelBase, IContactChooseViewModel
     {
-        public MessageDto _currentSmsMessage { get; set; }
+        public string ChoosingMessageText { get; set; }
 
         private List<AlphaKeyGroup<ContactDto>> _contacts;
         private ContactDto _selectedContact;
