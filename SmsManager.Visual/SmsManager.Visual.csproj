@@ -166,6 +166,10 @@
       <Project>{F8FC3487-1483-46FB-A784-053213C6E817}</Project>
       <Name>SmsManager.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SmsManager.SheduledTask\SmsManager.SheduledTask.csproj">
+      <Project>{71A0B1CA-BD16-4F84-A6B5-E3F8024798C5}</Project>
+      <Name>SmsManager.SheduledTask</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Contracts\" />

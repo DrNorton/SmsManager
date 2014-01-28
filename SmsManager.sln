@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsManager.DataLayer", "SmsManager.DataLayer\SmsManager.DataLayer.csproj", "{353F7023-D52B-45F1-B741-7643842172C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsManager.Infrastructure", "SmsManager.Infrastructure\SmsManager.Infrastructure.csproj", "{A16EEAFE-6E19-4AAC-A45E-B1055A3BD4AA}"
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsManager.Services", "SmsManager.Services\SmsManager.Services.csproj", "{F8FC3487-1483-46FB-A784-053213C6E817}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phone7.Fx", "Phone7.Fx\Phone7.Fx.csproj", "{B24D96DD-A649-4E97-A9E7-68438C88232F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsManager.SheduledTask", "SmsManager.SheduledTask\SmsManager.SheduledTask.csproj", "{71A0B1CA-BD16-4F84-A6B5-E3F8024798C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{B24D96DD-A649-4E97-A9E7-68438C88232F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B24D96DD-A649-4E97-A9E7-68438C88232F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B24D96DD-A649-4E97-A9E7-68438C88232F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71A0B1CA-BD16-4F84-A6B5-E3F8024798C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71A0B1CA-BD16-4F84-A6B5-E3F8024798C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71A0B1CA-BD16-4F84-A6B5-E3F8024798C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71A0B1CA-BD16-4F84-A6B5-E3F8024798C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
