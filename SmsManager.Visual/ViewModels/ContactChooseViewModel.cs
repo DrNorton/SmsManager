@@ -23,7 +23,7 @@ namespace SmsManager.Visual.ViewModels
     [ViewModel(typeof(ContactChooseView))]
     public class ContactChooseViewModel:ViewModelBase, IContactChooseViewModel
     {
-        public string ChoosingMessageText { get; set; }
+        public string ChoosedMessageText { get; set; }
 
         private List<AlphaKeyGroup<ContactDto>> _contacts;
         private ContactDto _selectedContact;
@@ -87,7 +87,7 @@ namespace SmsManager.Visual.ViewModels
 
         private void NavigateOnTelephoneKindChooser()
         {
-            _navigationService.UriFor<TelephoneKindChooseViewModel>().WithParam(x=>x.SelectedContactName,this.SelectedContact.DisplayName).Navigate();
+            _navigationService.UriFor<TelephoneKindChooseViewModel>().WithParam(x=>x.SelectedContactName,this.SelectedContact.DisplayName).WithParam(y=>y.ChoosedMessageText,ChoosedMessageText).Navigate();
         }
     }
 }

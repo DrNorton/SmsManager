@@ -10,12 +10,14 @@
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:designViewModel="clr-namespace:SmsManager.Visual.ViewModels.DesignViewModel"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True" d:DesignHeight="768" d:DesignWidth="480"
+    d:DataContext="{Binding Source={d:DesignInstance Type=designViewModel:DesignTelephoneKindChooseViewModel, IsDesignTimeCreatable=True}}">
     <i:Interaction.Behaviors>
         <mvvm:ViewModelBehavior/>
     </i:Interaction.Behaviors>
@@ -59,7 +61,7 @@
                     <StackPanel>
                         <StackPanel Grid.Row="0" Margin="-12,-2,0,0">
                             <TextBlock Style="{StaticResource PhoneTextNormalStyle}"/>
-                            <TextBlock Text="Turnstile Feather Example" Margin="12,-4,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            <TextBlock Text="Выберите номер телефона" Margin="12,-4,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
@@ -74,27 +76,24 @@
                     <Grid toolkit:TurnstileFeatherEffect.FeatheringIndex="1"
                         >
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="7*"/>
                         </Grid.ColumnDefinitions>
-                        <ListBoxItem toolkit:TiltEffect.IsTiltEnabled="True">
-                            <Image Source="{Binding Photo}"/>
+                        <ListBoxItem  toolkit:TiltEffect.IsTiltEnabled="True">
+                            <Image  Source="{Binding SelectedContact.Photo}"/>
                         </ListBoxItem>
                         <ListBoxItem toolkit:TiltEffect.IsTiltEnabled="True" Grid.Column="1" >
                             <StackPanel Margin="12,-6,0,0">
-                                <TextBlock Text="Windows Phone Toolkit updated" TextWrapping="Wrap"
+                                <TextBlock Text="Выбранный контакт" TextWrapping="Wrap"
                                        Foreground="{StaticResource PhoneAccentBrush}"/>
-                                <TextBlock Text="&quot;Check out the new cool stuff that we added.&quot;" TextWrapping="Wrap"
+                                <TextBlock Text="{Binding SelectedContact.DisplayName}" TextWrapping="Wrap"
                                        Foreground="{StaticResource PhoneForegroundBrush}"/>
-                                <TextBlock Text="Windows Live" TextWrapping="Wrap"
-                                       Foreground="{StaticResource PhoneSubtleBrush}"/>
-                                <TextBlock Text="on Sunday" TextWrapping="Wrap"
-                                       Foreground="{StaticResource PhoneSubtleBrush}"/>
+                              
                             </StackPanel>
                         </ListBoxItem>
                     </Grid>
                     <StackPanel Grid.Row="1" Margin="0,34,0,0">
-                        <ListBox ItemsSource="{Binding Telephones}" toolkit:TiltEffect.IsTiltEnabled="True"
+                        <ListBox ItemsSource="{Binding SelectedContact.Telephones}" SelectedItem="{Binding SelectedPhone,Mode=TwoWay}" toolkit:TiltEffect.IsTiltEnabled="True"
                                      toolkit:TurnstileFeatherEffect.FeatheringIndex="2">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>

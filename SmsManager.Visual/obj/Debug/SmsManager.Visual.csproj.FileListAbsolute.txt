@@ -119,3 +119,4 @@ C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\Bin\Debug\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\obj\Debug\Views\ContactChooseView.g.i.cs
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\obj\Debug\Views\TelephoneKindChooseView.g.cs
+C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Visual\obj\Debug\Views\TelephoneKindChooseView.g.i.cs

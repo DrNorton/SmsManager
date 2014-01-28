@@ -24,7 +24,7 @@ namespace SmsManager.Visual.ViewModels
         public DelegateCommand<object> GetContactCommand { get; set; }
 
         public long CurrentCategoryId { get; set; }
-
+        private MessageDto _selectedMessage;
     
         private CategoryDto _currentCategory;
         private IEnumerable<MessageDto> _categoryMessages;
@@ -43,7 +43,7 @@ namespace SmsManager.Visual.ViewModels
 
         private void ToContactListNavigatedHandler(object obj)
         {
-            _navigationService.UriFor<ContactChooseViewModel>().Navigate();
+            _navigationService.UriFor<ContactChooseViewModel>().WithParam(x=>x.ChoosedMessageText,SelectedMessage.Text).Navigate();
         }
 
         public override void InitalizeData(){
@@ -65,6 +65,14 @@ namespace SmsManager.Visual.ViewModels
             set{
                 _categoryMessages = value;
                 base.RaisePropertyChanged(()=>CategoryMessages);
+            }
+        }
+
+        public MessageDto SelectedMessage{
+            get { return _selectedMessage; }
+            set{
+                _selectedMessage = value;
+                base.RaisePropertyChanged(()=>SelectedMessage);
             }
         }
     }

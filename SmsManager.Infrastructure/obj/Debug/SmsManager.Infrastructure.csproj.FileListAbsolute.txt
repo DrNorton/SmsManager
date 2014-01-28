@@ -2,7 +2,6 @@ C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Infrast
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Infrastructure\Bin\Debug\SmsManager.Infrastructure.pdb
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Infrastructure\obj\Debug\SmsManager.Infrastructure.dll
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Infrastructure\obj\Debug\SmsManager.Infrastructure.pdb
-C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Infrastructure\obj\Debug\SmsManager.Infrastructure.csprojResolveAssemblyReference.cache
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Infrastructure\Bin\Debug\SmsManager.Infrastructure.dll
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Infrastructure\Bin\Debug\SmsManager.Infrastructure.pdb
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Infrastructure\obj\Debug\SmsManager.Infrastructure.dll

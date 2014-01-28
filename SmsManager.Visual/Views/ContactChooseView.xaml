@@ -9,13 +9,15 @@
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:mvvm="clr-namespace:Phone7.Fx.Mvvm;assembly=Phone7.Fx"
+    xmlns:designViewModel="clr-namespace:SmsManager.Visual.ViewModels.DesignViewModel"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True"
-     d:DataContext="{d:DesignData Source=/Views/DesignData/ContactChooseViewSampleData.xaml}" d:DesignHeight="768" d:DesignWidth="480">
+   d:DataContext="{Binding Source={d:DesignInstance Type=designViewModel:DesignContactChooseViewModel, IsDesignTimeCreatable=True}}"
+    d:DesignHeight="768" d:DesignWidth="480">
     
     <i:Interaction.Behaviors>
         <mvvm:ViewModelBehavior/>

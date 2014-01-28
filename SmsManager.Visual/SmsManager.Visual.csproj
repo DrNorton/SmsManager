@@ -74,8 +74,11 @@
     <Compile Include="Extensions\AlphaKeyGroup.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\ContactChooseViewModel.cs" />
-    <Compile Include="ViewModels\Contracts\IContactChooseViewModel.cs" />
     <Compile Include="ViewModels\DesignViewModel\DesignContactChooseViewModel.cs" />
+    <Compile Include="ViewModels\DesignViewModel\DesignTelephoneKindChooseViewModel.cs" />
+    <Compile Include="ViewModels\Contracts\ITelephoneKindChooseViewModel.cs" />
+    <Compile Include="ViewModels\Contracts\IContactChooseViewModel.cs" />
+    <Compile Include="ViewModels\ITelephoneKindChooseViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\TelephoneKindChooseViewModel.cs" />
     <Compile Include="Views\CategoryView.xaml.cs">
@@ -110,6 +113,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <DesignData Include="Views\DesignData\ContactChooseViewSampleData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </DesignData>
+    <DesignData Include="Views\DesignData\TelephoneKindChooseViewSampleData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </DesignData>

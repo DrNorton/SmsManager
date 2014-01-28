@@ -7,19 +7,22 @@ using Phone7.Fx.Mvvm;
 using Phone7.Fx.Navigation;
 using SmsManager.Services.Base;
 using SmsManager.Services.Models;
+using SmsManager.Visual.ViewModels.Contracts;
 using SmsManager.Visual.Views;
 
 namespace SmsManager.Visual.ViewModels
 {
     [ViewModel(typeof(TelephoneKindChooseView))]
-    public class TelephoneKindChooseViewModel : ViewModelBase
+    public class TelephoneKindChooseViewModel : ViewModelBase, ITelephoneKindChooseViewModel
     {
         private readonly INavigationService _navigationService;
         private readonly ISmsSenderService _smsSenderService;
         private readonly IContactService _contactService;
 
+        public string ChoosedMessageText { get; set; }
         public string SelectedContactName { get; set; }
         private ContactDto _selectedContact;
+        private TelephoneDto _selectedPhone;
 
         [Injection]
         public TelephoneKindChooseViewModel(INavigationService navigationService, ISmsSenderService smsSenderService,IContactService contactService)
@@ -53,6 +56,22 @@ namespace SmsManager.Visual.ViewModels
                 }
                 return null;
             }
+        }
+
+        public TelephoneDto SelectedPhone
+        {
+            get { return _selectedPhone; }
+            set
+            {
+                _selectedPhone = value;
+                SendSmsOnChoosedPhone();
+                base.RaisePropertyChanged(() => SelectedPhone);
+            }
+        }
+
+        private void SendSmsOnChoosedPhone()
+        {
+            _smsSenderService.SendSms(new SmsMessage(){MessageText = ChoosedMessageText,Telephone = _selectedPhone.TelephoneNumber});
         }
 
         public ContactDto SelectedContact
