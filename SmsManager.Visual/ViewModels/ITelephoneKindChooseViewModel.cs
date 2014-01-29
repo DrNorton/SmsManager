@@ -1,4 +1,5 @@
-﻿using SmsManager.Services.Models;
+﻿using SmsManager.DataLayer.Dto;
+using SmsManager.Services.Models;
 
 namespace SmsManager.Visual.ViewModels
 {

@@ -4,6 +4,7 @@ using Phone7.Fx.Ioc;
 using SmsManager.DataLayer;
 using SmsManager.DataLayer.Entities;
 using SmsManager.DataLayer.Repositories;
+using SmsManager.DataLayer.Repositories.Base;
 using SmsManager.Infrastructure.IRepositories;
 using SmsManager.Services;
 using SmsManager.Services.Base;
@@ -22,8 +23,9 @@ namespace SmsManager.Visual
             Container.Current.RegisterInstance<ISmsDataContext>(context);
             Container.Current.RegisterType<ICategoryRepository, CategoryRepository>();
             Container.Current.RegisterType<IMessagesRepository, MessagesRepository>();
+            Container.Current.RegisterType<IContactRepository, ContactRepository>();
             Container.Current.RegisterType<IDatabaseService, DatabaseService>();
-            Container.Current.RegisterType<IContactService, ContactService>();
+            //Container.Current.RegisterType<IContactService, ContactService>();
             Container.Current.RegisterType<ISmsSenderService, SmsSenderService>();
         }
 

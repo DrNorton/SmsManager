@@ -8,6 +8,7 @@
     <AssemblyPart x:Name="SmsManager.DataLayer" Source="SmsManager.DataLayer.dll" />
     <AssemblyPart x:Name="SmsManager.Infrastructure" Source="SmsManager.Infrastructure.dll" />
     <AssemblyPart x:Name="SmsManager.Services" Source="SmsManager.Services.dll" />
+    <AssemblyPart x:Name="SmsManager.SheduledTask" Source="SmsManager.SheduledTask.dll" />
     <AssemblyPart x:Name="System.Windows.Interactivity" Source="System.Windows.Interactivity.dll" />
   </Deployment.Parts>
 </Deployment>

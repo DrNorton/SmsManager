@@ -50,12 +50,10 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\IContactService.cs" />
     <Compile Include="Base\IDatabaseService.cs" />
     <Compile Include="Base\ISmsSenderService.cs" />
-    <Compile Include="ContactService.cs" />
+    <Compile Include="ContactSyncService.cs" />
     <Compile Include="DatabaseService.cs" />
-    <Compile Include="Models\ContactDto.cs" />
     <Compile Include="Models\SmsMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmsSenderService.cs" />

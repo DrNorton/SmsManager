@@ -26,7 +26,7 @@
 
             <!--Panorama item one-->
             <controls:PanoramaItem Header="Меню">
-                <Grid/>
+                <ListBox ItemsSource="{Binding MenuItems}" DisplayMemberPath="MenuItemName" SelectedItem="{Binding SelectedMenuItem,Mode=TwoWay}"/>
             </controls:PanoramaItem>
 
             <!--Panorama item two-->

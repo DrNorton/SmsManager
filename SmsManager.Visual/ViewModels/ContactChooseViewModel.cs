@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Threading;
-using Microsoft.Phone.UserData;
 using Phone7.Fx.Ioc;
 using Phone7.Fx.Mvvm;
 using Phone7.Fx.Navigation;
 using ScaryStories.ViewModel.Extensions;
 using SmsManager.DataLayer.Dto;
-using SmsManager.Services;
+using SmsManager.DataLayer.Repositories.Base;
 using SmsManager.Services.Base;
-using SmsManager.Services.Models;
 using SmsManager.Visual.ViewModels.Contracts;
 using SmsManager.Visual.Views;
 
@@ -27,24 +20,18 @@ namespace SmsManager.Visual.ViewModels
 
         private List<AlphaKeyGroup<ContactDto>> _contacts;
         private ContactDto _selectedContact;
-        private readonly IContactService _contactService;
+
+        private readonly IContactRepository _contactRepository;
         private readonly INavigationService _navigationService;
         private readonly ISmsSenderService _smsSenderService;
 
 
         [Injection]
-        public ContactChooseViewModel(IContactService contactService,INavigationService navigationService)
-        {
-            _contactService = contactService;
+        public ContactChooseViewModel(IContactRepository contactRepository,INavigationService navigationService){
+            _contactRepository = contactRepository;
             _navigationService = navigationService;
-            _contactService.OnGetComplete += _contactService_OnGetComplete;
-          
         }
 
-        void _contactService_OnGetComplete(object o, ContactServiceEventArgs e)
-        {
-           Contacts = ConvertToGroupedList(e.ResultContacts);
-        }
 
         private List<AlphaKeyGroup<ContactDto>> ConvertToGroupedList(IEnumerable<ContactDto> contacts)
         {
@@ -55,9 +42,9 @@ namespace SmsManager.Visual.ViewModels
             return alphaContact;
         }
 
-        public override void InitalizeData()
-        {
-           _contactService.GetAllContactsAsync(); 
+        public override void InitalizeData(){
+           var contacts=_contactRepository.GetAll().ToList();
+            ConvertToGroupedList(contacts);
             base.InitalizeData();
         }
 

@@ -19,7 +19,7 @@ namespace SmsManager.Visual.ViewModels
     {
         private IDatabaseService _dataService;
         private INavigationService _navigationService;
-        private IContactService _contactService;
+        
 
         public DelegateCommand<object> GetContactCommand { get; set; }
 

@@ -1,3 +1,4 @@
+C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.SheduledTask\obj\Debug\SmsManager.SheduledTask.csprojResolveAssemblyReference.cache
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.SheduledTask\Bin\Debug\SmsManager.SheduledTask.dll
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.SheduledTask\Bin\Debug\SmsManager.SheduledTask.pdb
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.SheduledTask\Bin\Debug\SmsManager.DataLayer.dll
@@ -17,6 +18,5 @@ C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.Shedule
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.SheduledTask\Bin\Debug\ko\System.Windows.Interactivity.resources.dll
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.SheduledTask\Bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.SheduledTask\Bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
-C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.SheduledTask\obj\Debug\SmsManager.SheduledTask.csprojResolveAssemblyReference.cache
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.SheduledTask\obj\Debug\SmsManager.SheduledTask.dll
 C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.SheduledTask\obj\Debug\SmsManager.SheduledTask.pdb

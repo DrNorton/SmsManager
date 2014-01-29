@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Media.Imaging;
 using Microsoft.Phone.UserData;
+using Phone7.Fx.Ioc;
+using SmsManager.DataLayer.Repositories.Base;
 using SmsManager.Services.Base;
 using SmsManager.Services.Models;
 
@@ -12,14 +14,19 @@ namespace SmsManager.Services
     {
         public delegate void ContactServiceEventHandler(object o, ContactServiceEventArgs e);
         public event ContactServiceEventHandler OnGetComplete;
-        private IEnumerable<ContactDto> _contacts;
+        private IEnumerable<ContactFromBook> _contacts;
+        private IContactRepository _contactRepository;
+
+        [Injection]
+        public ContactService(IContactRepository contactRepository){
+            _contactRepository = contactRepository;
+        }
 
         public void GetAllContactsAsync()
         {
             if (_contacts == null)
             {
                 var objContacts = new Contacts();
-              
                 objContacts.SearchCompleted += objContacts_SearchCompleted;
                 objContacts.SearchAsync(string.Empty, FilterKind.None, null);
             }
@@ -27,6 +34,10 @@ namespace SmsManager.Services
             {
                 OnGetComplete(this, new ContactServiceEventArgs(_contacts));
             }
+        }
+
+        private void GetContactsFromDataBase(){
+            var contacts = _contactRepository.GetAll().ToList();
         }
 
         public void GetOneContactAsync(string displayName)
@@ -61,22 +72,21 @@ namespace SmsManager.Services
             }
         }
 
-        private IEnumerable<ContactDto> ConvertContactsToDtoes(IEnumerable<Contact> contacts )
+
+        private IEnumerable<ContactFromBook> ConvertContactsToDtoes(IEnumerable<Contact> contacts )
         {
             foreach (var contact in contacts)
             {
                 yield return ConvertContactToDto(contact);
             }
         }
-
-        private ContactDto ConvertContactToDto(Contact contact){
+        private ContactFromBook ConvertContactToDto(Contact contact){
             var photo = GetPicture(contact);
-            var dto= new ContactDto(){DisplayName = contact.DisplayName,
+            var dto= new ContactFromBook(){DisplayName = contact.DisplayName,
                 Telephones = ConvertPhoneNumbers(contact.PhoneNumbers).ToList(),
                 Photo = photo};
             return dto;
         }
-
         private BitmapImage GetPicture(Contact contact)
         {
             BitmapImage img = new BitmapImage();
@@ -85,26 +95,23 @@ namespace SmsManager.Services
             img.SetSource(imageStream);
             return img;
         }
-
-        private IEnumerable<TelephoneDto> ConvertPhoneNumbers(IEnumerable<ContactPhoneNumber> telephoneNumbers){
+        private IEnumerable<TelephoneFromBook> ConvertPhoneNumbers(IEnumerable<ContactPhoneNumber> telephoneNumbers){
             foreach (var contactPhoneNumber in telephoneNumbers){
-                yield return new TelephoneDto(){TelephoneNumber = contactPhoneNumber.PhoneNumber,Kind = contactPhoneNumber.Kind.ToString()};
+                yield return new TelephoneFromBook(){TelephoneNumber = contactPhoneNumber.PhoneNumber,Kind = contactPhoneNumber.Kind.ToString()};
             }
         }
-
-
     }
 
     public class ContactServiceEventArgs:EventArgs
     {
-        private readonly IEnumerable<ContactDto> _resultContacts;
+        private readonly IEnumerable<ContactFromBook> _resultContacts;
 
-        public ContactServiceEventArgs(IEnumerable<ContactDto> result)
+        public ContactServiceEventArgs(IEnumerable<ContactFromBook> result)
         {
             _resultContacts = result;
         }
 
-        public IEnumerable<ContactDto> ResultContacts
+        public IEnumerable<ContactFromBook> ResultContacts
         {
             get { return _resultContacts; }
         }

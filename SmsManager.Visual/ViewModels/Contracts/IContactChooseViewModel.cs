@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ScaryStories.ViewModel.Extensions;
+using SmsManager.DataLayer.Dto;
 using SmsManager.Services.Models;
 
 namespace SmsManager.Visual.ViewModels.Contracts

@@ -5,10 +5,12 @@ using System.Text;
 using Phone7.Fx.Ioc;
 using Phone7.Fx.Mvvm;
 using Phone7.Fx.Navigation;
+using SmsManager.DataLayer.Dto;
 using SmsManager.Services.Base;
 using SmsManager.Services.Models;
 using SmsManager.Visual.ViewModels.Contracts;
 using SmsManager.Visual.Views;
+using SmsManager.DataLayer.Repositories.Base;
 
 namespace SmsManager.Visual.ViewModels
 {
@@ -17,57 +19,27 @@ namespace SmsManager.Visual.ViewModels
     {
         private readonly INavigationService _navigationService;
         private readonly ISmsSenderService _smsSenderService;
-        private readonly IContactService _contactService;
+        private readonly IContactRepository _contactRepository;
+
 
         public string ChoosedMessageText { get; set; }
-        public string SelectedContactName { get; set; }
+        public  long SelectedContactId { get; set; }
         private ContactDto _selectedContact;
-        private TelephoneDto _selectedPhone;
+        private string _selectedPhone;
 
         [Injection]
-        public TelephoneKindChooseViewModel(INavigationService navigationService, ISmsSenderService smsSenderService,IContactService contactService)
+        public TelephoneKindChooseViewModel(INavigationService navigationService, ISmsSenderService smsSenderService,IContactRepository contactRepository)
         {
             _navigationService = navigationService;
             _smsSenderService = smsSenderService;
-            _contactService = contactService;
-            _contactService.OnGetComplete += _contactService_OnGetComplete;
-          
+            _contactRepository = contactRepository;
         }
 
-        void _contactService_OnGetComplete(object o, Services.ContactServiceEventArgs e)
-        {
-            var contacts = e.ResultContacts as IEnumerable<ContactDto>;
-            SelectedContact = contacts.First();
-
+        public override void InitalizeData(){
+           SelectedContact= _contactRepository.GetItem(SelectedContactId);
+            base.InitalizeData();
         }
 
-        public override void InitalizeData()
-        {
-            _contactService.GetOneContactAsync(SelectedContactName);   
-        }
-
-        public IEnumerable<TelephoneDto> Telephones
-        {
-            get
-            {
-                if (SelectedContact != null)
-                {
-                    return SelectedContact.Telephones;
-                }
-                return null;
-            }
-        }
-
-        public TelephoneDto SelectedPhone
-        {
-            get { return _selectedPhone; }
-            set
-            {
-                _selectedPhone = value;
-                SendSmsOnChoosedPhone();
-                base.RaisePropertyChanged(() => SelectedPhone);
-            }
-        }
 
         private void SendSmsOnChoosedPhone()
         {

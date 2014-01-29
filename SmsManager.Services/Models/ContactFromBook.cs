@@ -7,19 +7,19 @@ using System.Windows.Media.Imaging;
 
 namespace SmsManager.Services.Models
 {
-    public class ContactDto
+    public class ContactFromBook
     {
         public long Id { get; set; }
         public string DisplayName { get; set; }
-        public IEnumerable<TelephoneDto> Telephones { get; set; }
+        public IEnumerable<TelephoneFromBook> Telephones { get; set; }
         public BitmapSource Photo { get; set; }
 
-        public ContactDto(){
-            Telephones=new Collection<TelephoneDto>();
+        public ContactFromBook(){
+            Telephones=new Collection<TelephoneFromBook>();
         }
     }
 
-    public class TelephoneDto
+    public class TelephoneFromBook
     {
       
         public string TelephoneNumber { get; set; }

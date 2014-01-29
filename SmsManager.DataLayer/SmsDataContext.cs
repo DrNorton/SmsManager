@@ -36,5 +36,9 @@ namespace SmsManager.DataLayer
         {
             get { return this.GetTable<Message>(); }
         }
+        public Table<ContactFromBase> Contacts
+        {
+            get { return this.GetTable<ContactFromBase>(); }
+        }
     }
 }
