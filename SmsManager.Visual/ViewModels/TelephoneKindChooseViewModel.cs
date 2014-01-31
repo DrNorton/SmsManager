@@ -25,7 +25,7 @@ namespace SmsManager.Visual.ViewModels
         public string ChoosedMessageText { get; set; }
         public  long SelectedContactId { get; set; }
         private ContactDto _selectedContact;
-        private string _selectedPhone;
+        private TelephoneDto _selectedPhone;
 
         [Injection]
         public TelephoneKindChooseViewModel(INavigationService navigationService, ISmsSenderService smsSenderService,IContactRepository contactRepository)
@@ -43,7 +43,7 @@ namespace SmsManager.Visual.ViewModels
 
         private void SendSmsOnChoosedPhone()
         {
-            _smsSenderService.SendSms(new SmsMessage(){MessageText = ChoosedMessageText,Telephone = _selectedPhone.TelephoneNumber});
+            _smsSenderService.SendSms(new SmsMessage(){MessageText = ChoosedMessageText,Telephone = SelectedPhone.TelephoneNumber});
         }
 
         public ContactDto SelectedContact
@@ -53,6 +53,20 @@ namespace SmsManager.Visual.ViewModels
             {
                 _selectedContact = value;
                 base.RaisePropertyChanged(()=>SelectedContact);
+            }
+        }
+
+        public TelephoneDto SelectedPhone
+        {
+            get { return _selectedPhone; }
+            set
+            {
+                _selectedPhone = value;
+                if (value != null)
+                {
+                    SendSmsOnChoosedPhone();
+                }
+                base.RaisePropertyChanged(()=>SelectedPhone);
             }
         }
     }

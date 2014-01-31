@@ -56,6 +56,7 @@ namespace SmsManager.DataLayer.Repositories.Base
             }
 
             dto.Id = updatedOrSavedEntity.Id;
+            
             _store.SubmitChanges();
         }
 

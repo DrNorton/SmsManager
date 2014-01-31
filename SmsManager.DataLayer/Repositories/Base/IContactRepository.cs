@@ -4,13 +4,13 @@ using SmsManager.DataLayer.Entities;
 
 namespace SmsManager.DataLayer.Repositories.Base
 {
-    public interface IContactRepository
+    public interface IContactRepository 
     {
-        ContactFromBase UpdateEntry(ContactDto sourceDto,ContactFromBase targetEntity);
-        ContactFromBase CreateEntry(ContactDto dto);
-        ContactDto Convert(ContactFromBase entity);
+        event BaseRepository<Contact, ContactDto>.ChangeHandler OnChange;
+        Contact UpdateEntry(ContactDto sourceDto, Contact targetEntity);
+        Contact CreateEntry(ContactDto dto);
+        ContactDto Convert(Contact entity);
         IEnumerable<ContactDto> Search(string pattern);
-        event BaseRepository<ContactFromBase, ContactDto>.ChangeHandler OnChange;
         IEnumerable<ContactDto> GetAll();
         ContactDto GetItem(long id);
         void InsertOrUpdateRange(IEnumerable<ContactDto> items);

@@ -40,7 +40,7 @@ namespace SmsManager.DataLayer.Repositories
 
         public override CategoryDto Convert(Category entity)
         {
-            return new CategoryDto(){Id=entity.Id,Image = entity.Image,Name = entity.Name};
+            return new CategoryDto(){Id=entity.Id,Image = entity.Image.ToArray(),Name = entity.Name};
         }
     }
 }

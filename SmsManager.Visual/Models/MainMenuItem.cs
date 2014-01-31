@@ -15,6 +15,8 @@ namespace SmsManager.Visual.Models
     public class MainMenuItem
     {
         public string MenuItemName { get; set; }
-       
+        public Action Navigate;
+
+
     }
 }

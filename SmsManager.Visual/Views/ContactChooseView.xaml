@@ -28,10 +28,10 @@
             <StackPanel VerticalAlignment="Top">
                 <Grid Margin="17,0,0,17">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="4*"/>
-                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="7*"/>
                     </Grid.ColumnDefinitions>
-                    <Image Source="{Binding Photo}"/>
+                    <Image Source="{Binding BitmapImage}"/>
                     <TextBlock TextWrapping="Wrap" Grid.Column="1" Text="{Binding DisplayName}" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeLarge}"/>
                 </Grid>
             </StackPanel>

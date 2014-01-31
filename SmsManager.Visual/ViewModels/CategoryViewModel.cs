@@ -43,6 +43,7 @@ namespace SmsManager.Visual.ViewModels
 
         private void ToContactListNavigatedHandler(object obj)
         {
+            if(SelectedMessage!=null)
             _navigationService.UriFor<ContactChooseViewModel>().WithParam(x=>x.ChoosedMessageText,SelectedMessage.Text).Navigate();
         }
 

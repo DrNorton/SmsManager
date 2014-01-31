@@ -13,6 +13,7 @@ namespace SmsManager.DataLayer
     {
         Table<Category> Categories { get; }
         Table<Message> Messages { get; }
+        Table<Telephone> Telephones { get; }
         TextWriter Log { get; set; }
         bool ObjectTrackingEnabled { get; set; }
         bool DeferredLoadingEnabled { get; set; }

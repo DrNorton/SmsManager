@@ -13,18 +13,33 @@ namespace SmsManager.Visual.ViewModels.DesignViewModel
 {
     public class DesignContactChooseViewModel:ViewModelBase,IContactChooseViewModel
     {
+        private List<AlphaKeyGroup<ContactDto>> _contacts;
 
-
+        public DesignContactChooseViewModel()
+        {
+            _contacts=new List<AlphaKeyGroup<ContactDto>>();
+            var anotherContacts = new List<ContactDto>();
+            
+        }
 
         public List<AlphaKeyGroup<ContactDto>> Contacts
         {
             get{
-                return null;
+                return _contacts;
             }
             set
             {
-                
+                _contacts = value;
             }
+        }
+
+        private List<AlphaKeyGroup<ContactDto>> ConvertToGroupedList(IEnumerable<ContactDto> contacts)
+        {
+            var alphaContact = AlphaKeyGroup<ContactDto>.CreateGroups(
+            contacts,
+            CultureInfo.CurrentCulture,
+            (ContactDto s) => { return s.DisplayName.ElementAt(0).ToString().ToLower(); }, true);
+            return alphaContact;
         }
     }
 }

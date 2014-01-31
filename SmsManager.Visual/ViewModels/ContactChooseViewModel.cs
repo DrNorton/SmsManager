@@ -44,7 +44,7 @@ namespace SmsManager.Visual.ViewModels
 
         public override void InitalizeData(){
            var contacts=_contactRepository.GetAll().ToList();
-            ConvertToGroupedList(contacts);
+            Contacts=ConvertToGroupedList(contacts);
             base.InitalizeData();
         }
 
@@ -74,7 +74,7 @@ namespace SmsManager.Visual.ViewModels
 
         private void NavigateOnTelephoneKindChooser()
         {
-            _navigationService.UriFor<TelephoneKindChooseViewModel>().WithParam(x=>x.SelectedContactName,this.SelectedContact.DisplayName).WithParam(y=>y.ChoosedMessageText,ChoosedMessageText).Navigate();
+            _navigationService.UriFor<TelephoneKindChooseViewModel>().WithParam(x=>x.SelectedContactId,this.SelectedContact.Id).WithParam(y=>y.ChoosedMessageText,ChoosedMessageText).Navigate();
         }
     }
 }

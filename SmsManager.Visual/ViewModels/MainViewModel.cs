@@ -32,7 +32,8 @@ namespace SmsManager.Visual.ViewModels
         private void CreateMenu(){
             _menuItems=new List<MainMenuItem>();
             //_menuItems.Add(new MainMenuItem(){MenuItemName = "Расписание"});
-            _menuItems.Add(new MainMenuItem(){MenuItemName = "Расписание праздников"});
+            _menuItems.Add(new MainMenuItem(){MenuItemName = "Расписание праздников",Navigate = new Action(NavigatedToSheduleCelebrationViewModel)});
+            _menuItems.Add(new MainMenuItem() { MenuItemName = "Синхронизация контактов",Navigate = new Action(NavigateToSyncViewModel)});
         }
 
         public IEnumerable<CategoryDto> Categories{
@@ -70,13 +71,18 @@ namespace SmsManager.Visual.ViewModels
             }
         }
 
+        private void NavigatedToSheduleCelebrationViewModel()
+        {
+            _navigationService.UriFor<CalendarViewModel>().Navigate();
+        }
+
+        private void NavigateToSyncViewModel()
+        {
+            _navigationService.UriFor<SyncViewModel>().Navigate();
+        }
+
         private void NavigateBySelectedMenuItem(){
-            //To:DO заменить на рефлексию
-            switch (SelectedMenuItem.MenuItemName){
-                case "Расписание праздников":
-                    _navigationService.UriFor<CalendarViewModel>().Navigate();
-                    break;
-            }
+           SelectedMenuItem.Navigate.Invoke();
         }
 
         private void NavigateToCategoryViewModel(){
@@ -85,4 +91,5 @@ namespace SmsManager.Visual.ViewModels
 
 
     }
+
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Data.Linq;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,28 +15,142 @@ using SmsManager.Infrastructure.Entities;
 
 namespace SmsManager.DataLayer.Entities
 {
-    [Table]
-    public class Category : IDetail{
-        private long _id;
-        private string _name;
-        private byte[] _image;
+    [global::System.Data.Linq.Mapping.TableAttribute(Name = "Categories")]
+    public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged,IDetail
+    {
 
-       [Column(IsPrimaryKey = true)]
-        public long Id{
-            get { return _id; }
-            set { _id = value; }
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+
+        private long _Id;
+
+        private string _Name;
+
+        private System.Data.Linq.Binary _Image;
+
+        private EntitySet<Message> _Messages;
+
+        #region Определения метода расширяемости
+        partial void OnLoaded();
+        partial void OnValidate(System.Data.Linq.ChangeAction action);
+        partial void OnCreated();
+        partial void OnIdChanging(long value);
+        partial void OnIdChanged();
+        partial void OnNameChanging(string value);
+        partial void OnNameChanged();
+        partial void OnImageChanging(System.Data.Linq.Binary value);
+        partial void OnImageChanged();
+        #endregion
+
+        public Category()
+        {
+            this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
+            OnCreated();
         }
 
-        [Column]
-        public string Name{
-            get { return _name; }
-            set { _name = value; }
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Id", AutoSync = AutoSync.OnInsert, DbType = "BigInt NOT NULL IDENTITY", IsPrimaryKey = true, IsDbGenerated = true)]
+        public long Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                if ((this._Id != value))
+                {
+                    this.OnIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._Id = value;
+                    this.SendPropertyChanged("Id");
+                    this.OnIdChanged();
+                }
+            }
         }
 
-        [Column]
-        public byte[] Image{
-            get { return _image; }
-            set { _image = value; }
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Name", DbType = "NVarChar(100)")]
+        public string Name
+        {
+            get
+            {
+                return this._Name;
+            }
+            set
+            {
+                if ((this._Name != value))
+                {
+                    this.OnNameChanging(value);
+                    this.SendPropertyChanging();
+                    this._Name = value;
+                    this.SendPropertyChanged("Name");
+                    this.OnNameChanged();
+                }
+            }
+        }
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Image", DbType = "VarBinary(8000)", CanBeNull = true)]
+        public System.Data.Linq.Binary Image
+        {
+            get
+            {
+                return this._Image;
+            }
+            set
+            {
+                if ((this._Image != value))
+                {
+                    this.OnImageChanging(value);
+                    this.SendPropertyChanging();
+                    this._Image = value;
+                    this.SendPropertyChanged("Image");
+                    this.OnImageChanged();
+                }
+            }
+        }
+
+        [global::System.Runtime.Serialization.IgnoreDataMember]
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "FK_CATEGORIES_MESSAGES", Storage = "_Messages", ThisKey = "Id", OtherKey = "CategoryId", DeleteRule = "CASCADE")]
+        public EntitySet<Message> Messages
+        {
+            get
+            {
+                return this._Messages;
+            }
+            set
+            {
+                this._Messages.Assign(value);
+            }
+        }
+
+        public event PropertyChangingEventHandler PropertyChanging;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        private void attach_Messages(Message entity)
+        {
+            this.SendPropertyChanging();
+            entity.Category = this;
+        }
+
+        private void detach_Messages(Message entity)
+        {
+            this.SendPropertyChanging();
+            entity.Category = null;
         }
     }
 }

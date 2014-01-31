@@ -80,7 +80,7 @@
                             <ColumnDefinition Width="7*"/>
                         </Grid.ColumnDefinitions>
                         <ListBoxItem  toolkit:TiltEffect.IsTiltEnabled="True">
-                            <Image  Source="{Binding SelectedContact.Photo}"/>
+                            <Image  Source="{Binding SelectedContact.BitmapImage}"/>
                         </ListBoxItem>
                         <ListBoxItem toolkit:TiltEffect.IsTiltEnabled="True" Grid.Column="1" >
                             <StackPanel Margin="12,-6,0,0">

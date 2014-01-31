@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Linq;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,7 +16,7 @@ using SmsManager.DataLayer.Repositories.Base;
 
 namespace SmsManager.DataLayer.Repositories
 {
-    public class ContactRepository : BaseRepository<ContactFromBase, ContactDto>, IContactRepository
+    public class ContactRepository : BaseRepository<Contact, ContactDto>, IContactRepository
     {
         [Injection]
         public ContactRepository(ISmsDataContext store)
@@ -29,30 +30,39 @@ namespace SmsManager.DataLayer.Repositories
             throw new NotImplementedException();
         }
 
-        public override ContactFromBase UpdateEntry(ContactDto sourceDto, ContactFromBase targetEntity)
+        public override Contact UpdateEntry(ContactDto sourceDto, Contact targetEntity)
         {
             targetEntity.Id = sourceDto.Id;
             targetEntity.Photo = sourceDto.Photo;
             targetEntity.BirthdayDate = sourceDto.BirthdayDate;
             targetEntity.DisplayName = sourceDto.DisplayName;
             targetEntity.EmailAddress= sourceDto.EmailAddress;
-            targetEntity.HomeTelephone = sourceDto.HomeTelephone;
-            targetEntity.MobileTelephone = sourceDto.MobileTelephone;
-            targetEntity.WorkTelephone = sourceDto.WorkTelephone;
+            foreach (var oldTelephone in targetEntity.Telephones)
+            {
+                _store.Telephones.DeleteOnSubmit(oldTelephone);
+            }
+            foreach (var telephone in sourceDto.Telephones)
+            {
+                var convertedTelephone=ConvertTelephoneDtoToEntity(targetEntity, telephone);
+                targetEntity.Telephones.Add(convertedTelephone);
+            }
+
             return targetEntity;
         }
 
-        public override ContactFromBase CreateEntry(ContactDto dto)
+        private static Telephone ConvertTelephoneDtoToEntity(Contact targetEntity, TelephoneDto telephone)
         {
-            return new ContactFromBase(){BirthdayDate = dto.BirthdayDate,DisplayName = dto.DisplayName,EmailAddress = dto.EmailAddress,Id=dto.Id,Photo = dto.Photo,HomeTelephone = dto.HomeTelephone,MobileTelephone = dto.MobileTelephone,WorkTelephone = dto.WorkTelephone};
+                return new Telephone() {Id=telephone.Id,KindId = telephone.TelephoneKind.Id, TelephoneNumber = telephone.TelephoneNumber,ContactId =telephone.ContactId };
         }
 
-        public override ContactDto Convert(ContactFromBase entity)
+        public override Contact CreateEntry(ContactDto dto)
         {
-            return new ContactDto(){
-                BirthdayDate = entity.BirthdayDate, DisplayName = entity.DisplayName, EmailAddress = entity.EmailAddress, Id = entity.Id, Photo = entity.Photo,
-                HomeTelephone = entity.HomeTelephone,MobileTelephone = entity.MobileTelephone,WorkTelephone = entity.WorkTelephone
-            };
+            return dto.ToEntityContact();
+        }
+
+        public override ContactDto Convert(Contact entity)
+        {
+            return new ContactDto(entity);
         }
 
 

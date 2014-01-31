@@ -85,6 +85,7 @@
     <Compile Include="ViewModels\Contracts\IContactChooseViewModel.cs" />
     <Compile Include="ViewModels\ITelephoneKindChooseViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SyncViewModel.cs" />
     <Compile Include="ViewModels\TelephoneKindChooseViewModel.cs" />
     <Compile Include="Views\CalendarView.xaml.cs">
       <DependentUpon>CalendarView.xaml</DependentUpon>
@@ -99,6 +100,9 @@
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\SyncView.xaml.cs">
+      <DependentUpon>SyncView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TelephoneKindChooseView.xaml.cs">
       <DependentUpon>TelephoneKindChooseView.xaml</DependentUpon>
     </Compile>
@@ -140,6 +144,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SyncView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TelephoneKindChooseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,6 +167,7 @@
     </Content>
     <Resource Include="Content\Images\appbar.back.png" />
     <Resource Include="Content\Images\appbar.next.png" />
+    <Content Include="Content\Images\unknown.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="SplashScreenImage.jpg" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />

@@ -1,48 +1,212 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Data.Linq;
 using System.Data.Linq.Mapping;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using SmsManager.Infrastructure.Entities;
 
 namespace SmsManager.DataLayer.Entities
 {
-    [Table]
-    public class Message : IDetail
+    [global::System.Data.Linq.Mapping.TableAttribute(Name = "Messages")]
+    public partial class Message : INotifyPropertyChanging, INotifyPropertyChanged,IDetail
     {
-        private long _id;
-        private string _text;
-        private long _usages;
-        private long _categoryId;
 
-       [Column(IsPrimaryKey = true)]
-        public long Id{
-            get { return _id; }
-            set { _id = value; }
+        private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+
+        private long _Id;
+
+        private string _Text;
+
+        private System.Nullable<long> _Usages;
+
+        private long _CategoryId;
+
+        private EntityRef<Category> _Category;
+
+        private EntitySet<CelebrityNotification> _CelebrityNotifications;
+
+        #region Определения метода расширяемости
+        partial void OnLoaded();
+        partial void OnValidate(System.Data.Linq.ChangeAction action);
+        partial void OnCreated();
+        partial void OnIdChanging(long value);
+        partial void OnIdChanged();
+        partial void OnTextChanging(string value);
+        partial void OnTextChanged();
+        partial void OnUsagesChanging(System.Nullable<long> value);
+        partial void OnUsagesChanged();
+        partial void OnCategoryIdChanging(long value);
+        partial void OnCategoryIdChanged();
+        #endregion
+
+        public Message()
+        {
+            this._Category = default(EntityRef<Category>);
+            this._CelebrityNotifications = new EntitySet<CelebrityNotification>(new Action<CelebrityNotification>(this.attach_CelebrityNotifications), new Action<CelebrityNotification>(this.detach_CelebrityNotifications));
+            OnCreated();
         }
 
-        [Column]
-        public string Text{
-            get { return _text; }
-            set { _text = value; }
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Id", AutoSync = AutoSync.OnInsert, DbType = "BigInt NOT NULL IDENTITY", IsPrimaryKey = true, IsDbGenerated = true)]
+        public long Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                if ((this._Id != value))
+                {
+                    this.OnIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._Id = value;
+                    this.SendPropertyChanged("Id");
+                    this.OnIdChanged();
+                }
+            }
         }
 
-        [Column]
-        public long Usages{
-            get { return _usages; }
-            set { _usages = value; }
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Text", DbType = "NText", UpdateCheck = UpdateCheck.Never)]
+        public string Text
+        {
+            get
+            {
+                return this._Text;
+            }
+            set
+            {
+                if ((this._Text != value))
+                {
+                    this.OnTextChanging(value);
+                    this.SendPropertyChanging();
+                    this._Text = value;
+                    this.SendPropertyChanged("Text");
+                    this.OnTextChanged();
+                }
+            }
         }
 
-        [Column]
-        public long CategoryId{
-            get { return _categoryId; }
-            set { _categoryId = value; }
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Usages", DbType = "BigInt")]
+        public System.Nullable<long> Usages
+        {
+            get
+            {
+                return this._Usages;
+            }
+            set
+            {
+                if ((this._Usages != value))
+                {
+                    this.OnUsagesChanging(value);
+                    this.SendPropertyChanging();
+                    this._Usages = value;
+                    this.SendPropertyChanged("Usages");
+                    this.OnUsagesChanged();
+                }
+            }
+        }
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CategoryId", DbType = "BigInt NOT NULL")]
+        public long CategoryId
+        {
+            get
+            {
+                return this._CategoryId;
+            }
+            set
+            {
+                if ((this._CategoryId != value))
+                {
+                    if (this._Category.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnCategoryIdChanging(value);
+                    this.SendPropertyChanging();
+                    this._CategoryId = value;
+                    this.SendPropertyChanged("CategoryId");
+                    this.OnCategoryIdChanged();
+                }
+            }
+        }
+
+        [global::System.Runtime.Serialization.IgnoreDataMember]
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "FK_CATEGORIES_MESSAGES", Storage = "_Category", ThisKey = "CategoryId", OtherKey = "Id", IsForeignKey = true, DeleteOnNull = true)]
+        public Category Category
+        {
+            get
+            {
+                return this._Category.Entity;
+            }
+            set
+            {
+                Category previousValue = this._Category.Entity;
+                if (((previousValue != value)
+                            || (this._Category.HasLoadedOrAssignedValue == false)))
+                {
+                    this.SendPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Category.Entity = null;
+                        previousValue.Messages.Remove(this);
+                    }
+                    this._Category.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Messages.Add(this);
+                        this._CategoryId = value.Id;
+                    }
+                    else
+                    {
+                        this._CategoryId = default(long);
+                    }
+                    this.SendPropertyChanged("Category");
+                }
+            }
+        }
+
+        [global::System.Runtime.Serialization.IgnoreDataMember]
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "FK_Celebrity_MESSAGES", Storage = "_CelebrityNotifications", ThisKey = "Id", OtherKey = "MessageId", DeleteRule = "CASCADE")]
+        public EntitySet<CelebrityNotification> CelebrityNotifications
+        {
+            get
+            {
+                return this._CelebrityNotifications;
+            }
+            set
+            {
+                this._CelebrityNotifications.Assign(value);
+            }
+        }
+
+        public event PropertyChangingEventHandler PropertyChanging;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void SendPropertyChanging()
+        {
+            if ((this.PropertyChanging != null))
+            {
+                this.PropertyChanging(this, emptyChangingEventArgs);
+            }
+        }
+
+        protected virtual void SendPropertyChanged(String propertyName)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        private void attach_CelebrityNotifications(CelebrityNotification entity)
+        {
+            this.SendPropertyChanging();
+            entity.Message = this;
+        }
+
+        private void detach_CelebrityNotifications(CelebrityNotification entity)
+        {
+            this.SendPropertyChanging();
+            entity.Message = null;
         }
     }
 }

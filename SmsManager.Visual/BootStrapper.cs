@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Linq;
 using Phone7.Fx;
 using Phone7.Fx.Ioc;
 using SmsManager.DataLayer;
@@ -25,8 +26,10 @@ namespace SmsManager.Visual
             Container.Current.RegisterType<IMessagesRepository, MessagesRepository>();
             Container.Current.RegisterType<IContactRepository, ContactRepository>();
             Container.Current.RegisterType<IDatabaseService, DatabaseService>();
-            //Container.Current.RegisterType<IContactService, ContactService>();
+            Container.Current.RegisterType<ICelebrityNotificationRepository, CelebrityNotificationRepository>();
+            Container.Current.RegisterType<IContactSyncService, ContactSyncService>();
             Container.Current.RegisterType<ISmsSenderService, SmsSenderService>();
+            Container.Current.RegisterType<ICelebritySyncService, CelebritySyncService>();
         }
 
         private SmsDataContext CreateDataBaseAndFillTestData(SmsDataContext db)
@@ -37,18 +40,11 @@ namespace SmsManager.Visual
                 db.CreateDatabase();
 
                 // Prepopulate the categories.
-                db.Categories.InsertOnSubmit(new Category() {Id=0, Image = new byte[5], Name = "1 категория" });
-                db.Categories.InsertOnSubmit(new Category() { Id = 1, Image = new byte[5], Name = "2 категория" });
-                db.Categories.InsertOnSubmit(new Category() { Id = 2, Image = new byte[5], Name = "3 категория" });
-                db.Categories.InsertOnSubmit(new Category() { Id = 3, Image = new byte[5], Name = "4 категория" });
-                db.Categories.InsertOnSubmit(new Category() { Id = 4, Image = new byte[5], Name = "5 категория" });
+                db.Categories.InsertOnSubmit(new Category() {Id=0, Image = new byte[5], Name = "1 категория",Messages = new EntitySet<Message>(){new Message(){Text = "12"}}});
                
-                long messageId = 0;
-                for (int i = 0; i < 5; i++){
-                    db.Messages.InsertOnSubmit(new Message() { Id = messageId, CategoryId = i, Text = String.Format("текстовое сообщение для категории {0}", i) });
-                    messageId++;
-                }
-                   
+                db.TelephoneKinds.InsertOnSubmit(new TelephoneKind() { Id = 1, Name = "Мобильный телефон"});
+                db.TelephoneKinds.InsertOnSubmit(new TelephoneKind() { Id = 2, Name = "Домашний телефон" });
+                db.TelephoneKinds.InsertOnSubmit(new TelephoneKind() { Id = 3, Name = "Рабочий телефон" });
                 
                 // Save categories to the database.
                 db.SubmitChanges();
