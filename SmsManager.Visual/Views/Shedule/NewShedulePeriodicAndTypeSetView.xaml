@@ -1,0 +1,51 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="SmsManager.Visual.Views.Shedule.NewShedulePeriodicAndTypeSetView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="Менеджер смс" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Создать переодичность" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+             <StackPanel>
+                        <StackPanel  Grid.Row="1" Margin="12,0,12,0">
+                            <TextBlock Text="переодичность" Style="{StaticResource PhoneTextNormalStyle}"/>
+                            <toolkit:ListPicker Header="">
+                                <system:String>Раз в год</system:String>
+                                <system:String>Раз в месяц</system:String>
+                                <system:String>Раз в неделю</system:String>
+                                <system:String>Раз в день</system:String>
+                            </toolkit:ListPicker>
+                            <TextBlock Text="Выберите стартовую дату" Style="{StaticResource PhoneTextNormalStyle}"/>
+                            <toolkit:DatePicker />
+                            <TextBlock Text="Выберите стартовое время" Style="{StaticResource PhoneTextNormalStyle}"/>
+                            <toolkit:TimePicker />
+                </StackPanel>
+                    </StackPanel>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

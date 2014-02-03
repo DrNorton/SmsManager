@@ -34,6 +34,8 @@ namespace SmsManager.DataLayer.Entities
 
         private EntitySet<CelebrityNotification> _CelebrityNotifications;
 
+        private EntitySet<SmsShedule> _SmsShedules;
+
         #region Определения метода расширяемости
         partial void OnLoaded();
         partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -54,6 +56,7 @@ namespace SmsManager.DataLayer.Entities
         {
             this._Telephones = new EntitySet<Telephone>(new Action<Telephone>(this.attach_Telephones), new Action<Telephone>(this.detach_Telephones));
             this._CelebrityNotifications = new EntitySet<CelebrityNotification>(new Action<CelebrityNotification>(this.attach_CelebrityNotifications), new Action<CelebrityNotification>(this.detach_CelebrityNotifications));
+            this._SmsShedules = new EntitySet<SmsShedule>(new Action<SmsShedule>(this.attach_SmsShedules), new Action<SmsShedule>(this.detach_SmsShedules));
             OnCreated();
         }
 
@@ -185,6 +188,20 @@ namespace SmsManager.DataLayer.Entities
             }
         }
 
+        [global::System.Runtime.Serialization.IgnoreDataMember]
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "FK_SmsShedules_CONTACTS", Storage = "_SmsShedules", ThisKey = "Id", OtherKey = "ContactId", DeleteRule = "CASCADE")]
+        public EntitySet<SmsShedule> SmsShedules
+        {
+            get
+            {
+                return this._SmsShedules;
+            }
+            set
+            {
+                this._SmsShedules.Assign(value);
+            }
+        }
+
         public event PropertyChangingEventHandler PropertyChanging;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -228,5 +245,18 @@ namespace SmsManager.DataLayer.Entities
             this.SendPropertyChanging();
             entity.Contact = null;
         }
+
+        private void attach_SmsShedules(SmsShedule entity)
+        {
+            this.SendPropertyChanging();
+            entity.Contact = this;
+        }
+
+        private void detach_SmsShedules(SmsShedule entity)
+        {
+            this.SendPropertyChanging();
+            entity.Contact = null;
+        }
     }
+	
 }

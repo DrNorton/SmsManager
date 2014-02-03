@@ -43,7 +43,10 @@ namespace SmsManager.DataLayer.Dto
             DisplayName = contact.DisplayName;
             BirthdayDate = contact.BirthdayDate;
             EmailAddress = contact.EmailAddress;
-            Photo = contact.Photo.ToArray();
+            if (contact.Photo != null)
+            {
+                Photo = contact.Photo.ToArray();
+            }
             Telephones=new List<TelephoneDto>();
             foreach (var telephone in contact.Telephones)
             {

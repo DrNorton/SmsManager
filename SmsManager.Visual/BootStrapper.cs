@@ -30,6 +30,7 @@ namespace SmsManager.Visual
             Container.Current.RegisterType<IContactSyncService, ContactSyncService>();
             Container.Current.RegisterType<ISmsSenderService, SmsSenderService>();
             Container.Current.RegisterType<ICelebritySyncService, CelebritySyncService>();
+            Container.Current.RegisterType<ISmsSheduleRepository, SmsSheduleRepository>();
         }
 
         private SmsDataContext CreateDataBaseAndFillTestData(SmsDataContext db)
@@ -45,9 +46,33 @@ namespace SmsManager.Visual
                 db.TelephoneKinds.InsertOnSubmit(new TelephoneKind() { Id = 1, Name = "Мобильный телефон"});
                 db.TelephoneKinds.InsertOnSubmit(new TelephoneKind() { Id = 2, Name = "Домашний телефон" });
                 db.TelephoneKinds.InsertOnSubmit(new TelephoneKind() { Id = 3, Name = "Рабочий телефон" });
+                var contact = new Contact()
+                {
+                    BirthdayDate = DateTime.Now,
+                    DisplayName = "Тестовый",
+                    EmailAddress = "",
+                    Id = 1
+                };
+
+                var periodic = new Periodic()
+                {
+                    Days = 0,
+                    Hours = 1,
+                    Id = 1,
+                    Minutes = 1,
+                    Name = "Раз в день",
+                    Seconds = 0
+                };
+                db.Periodics.InsertOnSubmit(periodic);
+                db.Contacts.InsertOnSubmit(contact);
+                var smsTask = new SmsTask() { Id = 1, IsExecuted = false, IsGeocoding = false, SheduleId = 1 };
+                var tasks = new EntitySet<SmsTask>();
+                tasks.Add(smsTask);
+                db.SmsTasks.InsertOnSubmit(smsTask);
+                db.SmsShedules.InsertOnSubmit(new SmsShedule(){Contact = contact,Id=1,Name = "Тестовый",Periodic = periodic,SmsTasks =tasks });
                 
                 // Save categories to the database.
-                db.SubmitChanges();
+                 db.SubmitChanges();
             }
             return db;
         }

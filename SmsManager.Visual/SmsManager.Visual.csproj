@@ -76,17 +76,25 @@
     </Compile>
     <Compile Include="Extensions\AlphaKeyGroup.cs" />
     <Compile Include="Models\MainMenuItem.cs" />
+    <Compile Include="ViewModels\Base\BaseContactChooseViewModel.cs" />
+    <Compile Include="ViewModels\Base\BaseTelephoneKindChooseViewModel.cs" />
     <Compile Include="ViewModels\CalendarViewModel.cs" />
-    <Compile Include="ViewModels\CategoryViewModel.cs" />
-    <Compile Include="ViewModels\ContactChooseViewModel.cs" />
+    <Compile Include="ViewModels\CategorySms\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\CategorySms\CategoryContactChooseViewModel.cs" />
+    <Compile Include="ViewModels\DesignViewModel\DesignAddSheduleViewModel.cs" />
+    <Compile Include="ViewModels\DesignViewModel\DesignAllSheduleViewModel.cs" />
     <Compile Include="ViewModels\DesignViewModel\DesignContactChooseViewModel.cs" />
     <Compile Include="ViewModels\DesignViewModel\DesignTelephoneKindChooseViewModel.cs" />
     <Compile Include="ViewModels\Contracts\ITelephoneKindChooseViewModel.cs" />
     <Compile Include="ViewModels\Contracts\IContactChooseViewModel.cs" />
-    <Compile Include="ViewModels\ITelephoneKindChooseViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\Shedule\AddSheduleViewModel.cs" />
+    <Compile Include="ViewModels\Shedule\AllSheduleViewModel.cs" />
+    <Compile Include="ViewModels\Shedule\NewSheduleContactChooseViewModel.cs" />
+    <Compile Include="ViewModels\Shedule\NewShedulePeriodicAndTypeSetViewModel.cs" />
+    <Compile Include="ViewModels\Shedule\NewSheduleTelephoneKindChooserViewModel.cs" />
     <Compile Include="ViewModels\SyncViewModel.cs" />
-    <Compile Include="ViewModels\TelephoneKindChooseViewModel.cs" />
+    <Compile Include="ViewModels\CategorySms\CategoryTelephoneKindChooseViewModel.cs" />
     <Compile Include="Views\CalendarView.xaml.cs">
       <DependentUpon>CalendarView.xaml</DependentUpon>
     </Compile>
@@ -100,6 +108,15 @@
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Shedule\AddSheduleView.xaml.cs">
+      <DependentUpon>AddSheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shedule\AllSheduleView.xaml.cs">
+      <DependentUpon>AllSheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shedule\NewShedulePeriodicAndTypeSetView.xaml.cs">
+      <DependentUpon>NewShedulePeriodicAndTypeSetView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SyncView.xaml.cs">
       <DependentUpon>SyncView.xaml</DependentUpon>
     </Compile>
@@ -141,6 +158,18 @@
       <Generator>MSBuild:Compile</Generator>
     </DesignData>
     <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Shedule\AddSheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Shedule\AllSheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Shedule\NewShedulePeriodicAndTypeSetView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

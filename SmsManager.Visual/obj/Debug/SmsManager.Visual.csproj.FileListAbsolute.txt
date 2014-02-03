@@ -129,3 +129,6 @@ C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\obj\Debug\SmsMa
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\obj\Debug\SmsManager.Visual.dll
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\obj\Debug\SmsManager.Visual.pdb
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\obj\Debug\XapCacheFile.xml
+C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\obj\Debug\Views\Shedule\AllSheduleView.g.cs
+C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\obj\Debug\Views\Shedule\AddSheduleView.g.cs
+C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.Visual\obj\Debug\Views\Shedule\NewShedulePeriodicAndTypeSetView.g.cs

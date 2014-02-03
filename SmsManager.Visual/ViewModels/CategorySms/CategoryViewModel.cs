@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Input;
 using Phone7.Fx.Commands;
 using Phone7.Fx.Ioc;
 using Phone7.Fx.Mvvm;
 using Phone7.Fx.Navigation;
 using SmsManager.DataLayer.Dto;
-using SmsManager.Services;
 using SmsManager.Services.Base;
 using SmsManager.Visual.Views;
 
-namespace SmsManager.Visual.ViewModels
+namespace SmsManager.Visual.ViewModels.CategorySms
 {
     [ViewModel(typeof(CategoryView))]
     public class CategoryViewModel : ViewModelBase
     {
-        private IDatabaseService _dataService;
-        private INavigationService _navigationService;
+        private readonly IDatabaseService _dataService;
+        private readonly INavigationService _navigationService;
         
 
         public DelegateCommand<object> GetContactCommand { get; set; }
@@ -34,17 +30,15 @@ namespace SmsManager.Visual.ViewModels
         public CategoryViewModel(IDatabaseService dataService, INavigationService navigationService){
             _dataService = dataService;
             _navigationService = navigationService;
-          
             GetContactCommand=new DelegateCommand<object>(ToContactListNavigatedHandler);
-            
         }
 
-        
+       
 
         private void ToContactListNavigatedHandler(object obj)
-        {
+        { 
             if(SelectedMessage!=null)
-            _navigationService.UriFor<ContactChooseViewModel>().WithParam(x=>x.ChoosedMessageText,SelectedMessage.Text).Navigate();
+            _navigationService.UriFor<CategoryContactChooseViewModel>().WithParam(x=>x.ChoosedMessageText,SelectedMessage.Text).Navigate();
         }
 
         public override void InitalizeData(){

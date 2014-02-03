@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Media.Imaging;
 using Phone7.Fx.Mvvm;
 using SmsManager.DataLayer.Dto;
-using SmsManager.Services.Models;
+using SmsManager.Visual.ViewModels.Contracts;
 
 namespace SmsManager.Visual.ViewModels.DesignViewModel
 {

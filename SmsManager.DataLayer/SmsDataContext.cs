@@ -6,7 +6,6 @@ using SmsManager.DataLayer.Entities;
 
 namespace SmsManager.DataLayer
 {
-
     public class DebugWriter : TextWriter
     {
         private const int DefaultBufferSize = 256;
@@ -66,154 +65,194 @@ namespace SmsManager.DataLayer
         #endregion
     }
 
-
-    public partial class SmsDataContext : System.Data.Linq.DataContext,ISmsDataContext
+    public partial class SmsDataContext : System.Data.Linq.DataContext, ISmsDataContext
     {
 
-        public bool CreateIfNotExists()
-        {
-            bool created = false;
-            if (!this.DatabaseExists())
+     
+
+            public bool CreateIfNotExists()
             {
-                string[] names = this.GetType().Assembly.GetManifestResourceNames();
-                string name = names.Where(n => n.EndsWith(FileName)).FirstOrDefault();
-                if (name != null)
+                bool created = false;
+                if (!this.DatabaseExists())
                 {
-                    using (Stream resourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(name))
+                    string[] names = this.GetType().Assembly.GetManifestResourceNames();
+                    string name = names.Where(n => n.EndsWith(FileName)).FirstOrDefault();
+                    if (name != null)
                     {
-                        if (resourceStream != null)
+                        using (Stream resourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(name))
                         {
-                            using (IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
+                            if (resourceStream != null)
                             {
-                                using (IsolatedStorageFileStream fileStream = new IsolatedStorageFileStream(FileName, FileMode.Create, myIsolatedStorage))
+                                using (
+                                    IsolatedStorageFile myIsolatedStorage =
+                                        IsolatedStorageFile.GetUserStoreForApplication())
                                 {
-                                    using (BinaryWriter writer = new BinaryWriter(fileStream))
+                                    using (
+                                        IsolatedStorageFileStream fileStream = new IsolatedStorageFileStream(FileName,
+                                            FileMode.Create, myIsolatedStorage))
                                     {
-                                        long length = resourceStream.Length;
-                                        byte[] buffer = new byte[32];
-                                        int readCount = 0;
-                                        using (BinaryReader reader = new BinaryReader(resourceStream))
+                                        using (BinaryWriter writer = new BinaryWriter(fileStream))
                                         {
-                                            // read file in chunks in order to reduce memory consumption and increase performance
-                                            while (readCount < length)
+                                            long length = resourceStream.Length;
+                                            byte[] buffer = new byte[32];
+                                            int readCount = 0;
+                                            using (BinaryReader reader = new BinaryReader(resourceStream))
                                             {
-                                                int actual = reader.Read(buffer, 0, buffer.Length);
-                                                readCount += actual;
-                                                writer.Write(buffer, 0, actual);
+                                                // read file in chunks in order to reduce memory consumption and increase performance
+                                                while (readCount < length)
+                                                {
+                                                    int actual = reader.Read(buffer, 0, buffer.Length);
+                                                    readCount += actual;
+                                                    writer.Write(buffer, 0, actual);
+                                                }
                                             }
                                         }
                                     }
                                 }
+                                created = true;
                             }
-                            created = true;
-                        }
-                        else
-                        {
-                            this.CreateDatabase();
-                            created = true;
+                            else
+                            {
+                                this.CreateDatabase();
+                                created = true;
+                            }
                         }
                     }
+                    else
+                    {
+                        this.CreateDatabase();
+                        created = true;
+                    }
                 }
-                else
+                return created;
+            }
+
+            public bool LogDebug
+            {
+                set
                 {
-                    this.CreateDatabase();
-                    created = true;
+                    if (value)
+                    {
+                        this.Log = new DebugWriter();
+                    }
                 }
             }
-            return created;
-        }
 
-        public bool LogDebug
-        {
-            set
+            public static string ConnectionString = "Data Source=isostore:/db.sdf";
+
+            public static string ConnectionStringReadOnly = "Data Source=appdata:/db.sdf;File Mode=Read Only;";
+
+            public static string FileName = "db.sdf";
+
+            public SmsDataContext(string connectionString) : base(connectionString)
             {
-                if (value)
+                OnCreated();
+            }
+
+            #region Определения метода расширяемости
+
+            partial void OnCreated();
+            partial void InsertCategory(Category instance);
+            partial void UpdateCategory(Category instance);
+            partial void DeleteCategory(Category instance);
+            partial void InsertCelebrityNotification(CelebrityNotification instance);
+            partial void UpdateCelebrityNotification(CelebrityNotification instance);
+            partial void DeleteCelebrityNotification(CelebrityNotification instance);
+            partial void InsertContact(Contact instance);
+            partial void UpdateContact(Contact instance);
+            partial void DeleteContact(Contact instance);
+            partial void InsertMessage(Message instance);
+            partial void UpdateMessage(Message instance);
+            partial void DeleteMessage(Message instance);
+            partial void InsertPeriodic(Periodic instance);
+            partial void UpdatePeriodic(Periodic instance);
+            partial void DeletePeriodic(Periodic instance);
+            partial void InsertSmsShedule(SmsShedule instance);
+            partial void UpdateSmsShedule(SmsShedule instance);
+            partial void DeleteSmsShedule(SmsShedule instance);
+            partial void InsertSmsTask(SmsTask instance);
+            partial void UpdateSmsTask(SmsTask instance);
+            partial void DeleteSmsTask(SmsTask instance);
+            partial void InsertTelephoneKind(TelephoneKind instance);
+            partial void UpdateTelephoneKind(TelephoneKind instance);
+            partial void DeleteTelephoneKind(TelephoneKind instance);
+            partial void InsertTelephone(Telephone instance);
+            partial void UpdateTelephone(Telephone instance);
+            partial void DeleteTelephone(Telephone instance);
+
+            #endregion
+
+            public System.Data.Linq.Table<Category> Categories
+            {
+                get
                 {
-                    this.Log = new DebugWriter();
+                    return this.GetTable<Category>();
                 }
             }
-        }
 
-        public static string ConnectionString = "Data Source=isostore:/db.sdf";
-
-        public static string ConnectionStringReadOnly = "Data Source=appdata:/db.sdf;File Mode=Read Only;";
-
-        public static string FileName = "db.sdf";
-
-        public SmsDataContext(string connectionString)
-            : base(connectionString)
-        {
-            OnCreated();
-        }
-
-        #region Определения метода расширяемости
-        partial void OnCreated();
-        partial void InsertCategory(Category instance);
-        partial void UpdateCategory(Category instance);
-        partial void DeleteCategory(Category instance);
-        partial void InsertCelebrityNotification(CelebrityNotification instance);
-        partial void UpdateCelebrityNotification(CelebrityNotification instance);
-        partial void DeleteCelebrityNotification(CelebrityNotification instance);
-        partial void InsertContact(Contact instance);
-        partial void UpdateContact(Contact instance);
-        partial void DeleteContact(Contact instance);
-        partial void InsertMessage(Message instance);
-        partial void UpdateMessage(Message instance);
-        partial void DeleteMessage(Message instance);
-        partial void InsertTelephoneKind(TelephoneKind instance);
-        partial void UpdateTelephoneKind(TelephoneKind instance);
-        partial void DeleteTelephoneKind(TelephoneKind instance);
-        partial void InsertTelephone(Telephone instance);
-        partial void UpdateTelephone(Telephone instance);
-        partial void DeleteTelephone(Telephone instance);
-        #endregion
-
-        public System.Data.Linq.Table<Category> Categories
-        {
-            get
+            public System.Data.Linq.Table<CelebrityNotification> CelebrityNotifications
             {
-                return this.GetTable<Category>();
+                get
+                {
+                    return this.GetTable<CelebrityNotification>();
+                }
             }
-        }
 
-        public System.Data.Linq.Table<CelebrityNotification> CelebrityNotifications
-        {
-            get
+            public System.Data.Linq.Table<Contact> Contacts
             {
-                return this.GetTable<CelebrityNotification>();
+                get
+                {
+                    return this.GetTable<Contact>();
+                }
             }
-        }
 
-        public System.Data.Linq.Table<Contact> Contacts
-        {
-            get
+            public System.Data.Linq.Table<Message> Messages
             {
-                return this.GetTable<Contact>();
+                get
+                {
+                    return this.GetTable<Message>();
+                }
             }
-        }
 
-        public System.Data.Linq.Table<Message> Messages
-        {
-            get
+            public System.Data.Linq.Table<Periodic> Periodics
             {
-                return this.GetTable<Message>();
+                get
+                {
+                    return this.GetTable<Periodic>();
+                }
             }
-        }
 
-        public System.Data.Linq.Table<TelephoneKind> TelephoneKinds
-        {
-            get
+            public System.Data.Linq.Table<SmsShedule> SmsShedules
             {
-                return this.GetTable<TelephoneKind>();
+                get
+                {
+                    return this.GetTable<SmsShedule>();
+                }
             }
-        }
 
-        public System.Data.Linq.Table<Telephone> Telephones
-        {
-            get
+            public System.Data.Linq.Table<SmsTask> SmsTasks
             {
-                return this.GetTable<Telephone>();
+                get
+                {
+                    return this.GetTable<SmsTask>();
+                }
             }
-        }
+
+            public System.Data.Linq.Table<TelephoneKind> TelephoneKinds
+            {
+                get
+                {
+                    return this.GetTable<TelephoneKind>();
+                }
+            }
+
+            public System.Data.Linq.Table<Telephone> Telephones
+            {
+                get
+                {
+                    return this.GetTable<Telephone>();
+                }
+            }
+        
     }
 }

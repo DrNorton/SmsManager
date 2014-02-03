@@ -8,6 +8,8 @@ using SmsManager.DataLayer.Dto;
 using SmsManager.Services;
 using SmsManager.Services.Base;
 using SmsManager.Visual.Models;
+using SmsManager.Visual.ViewModels.CategorySms;
+using SmsManager.Visual.ViewModels.Shedule;
 using SmsManager.Visual.Views;
 
 namespace SmsManager.Visual.ViewModels
@@ -34,6 +36,12 @@ namespace SmsManager.Visual.ViewModels
             //_menuItems.Add(new MainMenuItem(){MenuItemName = "Расписание"});
             _menuItems.Add(new MainMenuItem(){MenuItemName = "Расписание праздников",Navigate = new Action(NavigatedToSheduleCelebrationViewModel)});
             _menuItems.Add(new MainMenuItem() { MenuItemName = "Синхронизация контактов",Navigate = new Action(NavigateToSyncViewModel)});
+            _menuItems.Add(new MainMenuItem(){MenuItemName = "Список всех задач",Navigate = new Action(NavigateToAllShedulesViewModel)});
+        }
+
+        private void NavigateToAllShedulesViewModel()
+        {
+            _navigationService.UriFor<AllSheduleViewModel>().Navigate();
         }
 
         public IEnumerable<CategoryDto> Categories{

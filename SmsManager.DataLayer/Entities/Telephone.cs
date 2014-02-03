@@ -26,6 +26,8 @@ namespace SmsManager.DataLayer.Entities
 
         private EntityRef<TelephoneKind> _TelephoneKind;
 
+        private EntitySet<SmsShedule> _SmsShedules;
+
         #region Определения метода расширяемости
         partial void OnLoaded();
         partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -44,6 +46,7 @@ namespace SmsManager.DataLayer.Entities
         {
             this._Contact = default(EntityRef<Contact>);
             this._TelephoneKind = default(EntityRef<TelephoneKind>);
+            this._SmsShedules = new EntitySet<SmsShedule>(new Action<SmsShedule>(this.attach_SmsShedules), new Action<SmsShedule>(this.detach_SmsShedules));
             OnCreated();
         }
 
@@ -205,6 +208,20 @@ namespace SmsManager.DataLayer.Entities
             }
         }
 
+        [global::System.Runtime.Serialization.IgnoreDataMember]
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "PK_TelephoneId", Storage = "_SmsShedules", ThisKey = "Id", OtherKey = "TelephoneId", DeleteRule = "CASCADE")]
+        public EntitySet<SmsShedule> SmsShedules
+        {
+            get
+            {
+                return this._SmsShedules;
+            }
+            set
+            {
+                this._SmsShedules.Assign(value);
+            }
+        }
+
         public event PropertyChangingEventHandler PropertyChanging;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -223,6 +240,18 @@ namespace SmsManager.DataLayer.Entities
             {
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        private void attach_SmsShedules(SmsShedule entity)
+        {
+            this.SendPropertyChanging();
+            entity.Telephone = this;
+        }
+
+        private void detach_SmsShedules(SmsShedule entity)
+        {
+            this.SendPropertyChanging();
+            entity.Telephone = null;
         }
     }
 }

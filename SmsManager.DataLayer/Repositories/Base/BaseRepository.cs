@@ -62,7 +62,7 @@ namespace SmsManager.DataLayer.Repositories.Base
 
         public void Delete(Dto dto)
         {
-            var item = _store.GetTable<Entity>().FirstOrDefault(x => x.Id == dto.Id);
+            var item = _store.GetTable<Entity>().FirstOrDefault(x => x.Id.Equals(dto.Id));
             _store.GetTable<Entity>().DeleteOnSubmit(item);
             _store.SubmitChanges();
         }

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using Phone7.Fx.Ioc;
 using Phone7.Fx.Mvvm;
 using Phone7.Fx.Navigation;
@@ -8,26 +10,20 @@ using ScaryStories.ViewModel.Extensions;
 using SmsManager.DataLayer.Dto;
 using SmsManager.DataLayer.Repositories.Base;
 using SmsManager.Services.Base;
-using SmsManager.Visual.ViewModels.Contracts;
-using SmsManager.Visual.Views;
 
-namespace SmsManager.Visual.ViewModels
+namespace SmsManager.Visual.ViewModels.Base
 {
-    [ViewModel(typeof(ContactChooseView))]
-    public class ContactChooseViewModel:ViewModelBase, IContactChooseViewModel
+    public abstract class BaseContactChooseViewModel:ViewModelBase
     {
-        public string ChoosedMessageText { get; set; }
-
         private List<AlphaKeyGroup<ContactDto>> _contacts;
         private ContactDto _selectedContact;
 
         private readonly IContactRepository _contactRepository;
-        private readonly INavigationService _navigationService;
+        protected readonly INavigationService _navigationService;
         private readonly ISmsSenderService _smsSenderService;
-
-
-        [Injection]
-        public ContactChooseViewModel(IContactRepository contactRepository,INavigationService navigationService){
+   
+        public BaseContactChooseViewModel(IContactRepository contactRepository, INavigationService navigationService)
+        {
             _contactRepository = contactRepository;
             _navigationService = navigationService;
         }
@@ -66,15 +62,14 @@ namespace SmsManager.Visual.ViewModels
                 _selectedContact = value;
                 if (value != null)
                 {
-                    NavigateOnTelephoneKindChooser();
+                    OnContactSelected();
                 }
                 base.RaisePropertyChanged(()=>SelectedContact);
             }
         }
 
-        private void NavigateOnTelephoneKindChooser()
-        {
-            _navigationService.UriFor<TelephoneKindChooseViewModel>().WithParam(x=>x.SelectedContactId,this.SelectedContact.Id).WithParam(y=>y.ChoosedMessageText,ChoosedMessageText).Navigate();
-        }
+
+        protected abstract void OnContactSelected();
+
     }
 }

@@ -1,14 +1,15 @@
-﻿<viewModels:CategoryViewModel 
+﻿<categorySms:CategoryViewModel 
     xmlns:viewModels="clr-namespace:SmsManager.Visual.ViewModels"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
-    xmlns:dto="clr-namespace:SmsManager.DataLayer.Dto;assembly=SmsManager.DataLayer">
-    <viewModels:CategoryViewModel.CategoryMessages>
+    xmlns:dto="clr-namespace:SmsManager.DataLayer.Dto;assembly=SmsManager.DataLayer"
+    xmlns:categorySms="clr-namespace:SmsManager.Visual.ViewModels.CategorySms">
+    <categorySms:CategoryViewModel.CategoryMessages>
         <dto:MessageDto Text="A couple of weeks ago, I wrote a blog post which described the creation of a Windows Phone 7 ConversationView, a view which renders a list of messages so that they look like a conversation. In this blog post, I am going to extend the concept further, by adding an input text field allowing you to have a conversation with ELIZA, an A.I. chatterbot. This blog post will look at some of the tricky issues regarding scrolling the list of messages so that the most recent is always visible when responding."/>
         <dto:MessageDto Text="I hoped that I could find a decent C# ELIZA (a classic chatter application that takes on the role of a therapist) implementation on the internet, however, the only one I found was rather basic. If you know of any alternatives, please let me know!"/>
         <dto:MessageDto Text="In my previous blog post, I created a UserControl which renders each Message instance, where the template used to render the message is dependant on which side of the conversation it relates to. Refer to my previous blog post for implementation details."/>
         <dto:MessageDto Text="The layout for my simple chat application uses an instance of the ConversationView user control, with a text input located at the bottom of the screen:"/>
         <dto:MessageDto Text="Note the simplified Grid markup from the WP7Contrib codeplex project, where the string  is used in place of the more verbose RowDefinition XAML elements."/>
-    </viewModels:CategoryViewModel.CategoryMessages>
+    </categorySms:CategoryViewModel.CategoryMessages>
     
-</viewModels:CategoryViewModel>
+</categorySms:CategoryViewModel>

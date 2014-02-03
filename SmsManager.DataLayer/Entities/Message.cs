@@ -23,6 +23,8 @@ namespace SmsManager.DataLayer.Entities
 
         private EntitySet<CelebrityNotification> _CelebrityNotifications;
 
+        private EntitySet<SmsTask> _SmsTasks;
+
         #region Определения метода расширяемости
         partial void OnLoaded();
         partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -41,6 +43,7 @@ namespace SmsManager.DataLayer.Entities
         {
             this._Category = default(EntityRef<Category>);
             this._CelebrityNotifications = new EntitySet<CelebrityNotification>(new Action<CelebrityNotification>(this.attach_CelebrityNotifications), new Action<CelebrityNotification>(this.detach_CelebrityNotifications));
+            this._SmsTasks = new EntitySet<SmsTask>(new Action<SmsTask>(this.attach_SmsTasks), new Action<SmsTask>(this.detach_SmsTasks));
             OnCreated();
         }
 
@@ -177,6 +180,20 @@ namespace SmsManager.DataLayer.Entities
             }
         }
 
+        [global::System.Runtime.Serialization.IgnoreDataMember]
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "FK_SmsTask_MESSAGES", Storage = "_SmsTasks", ThisKey = "Id", OtherKey = "MessageId", DeleteRule = "CASCADE")]
+        public EntitySet<SmsTask> SmsTasks
+        {
+            get
+            {
+                return this._SmsTasks;
+            }
+            set
+            {
+                this._SmsTasks.Assign(value);
+            }
+        }
+
         public event PropertyChangingEventHandler PropertyChanging;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -204,6 +221,18 @@ namespace SmsManager.DataLayer.Entities
         }
 
         private void detach_CelebrityNotifications(CelebrityNotification entity)
+        {
+            this.SendPropertyChanging();
+            entity.Message = null;
+        }
+
+        private void attach_SmsTasks(SmsTask entity)
+        {
+            this.SendPropertyChanging();
+            entity.Message = this;
+        }
+
+        private void detach_SmsTasks(SmsTask entity)
         {
             this.SendPropertyChanging();
             entity.Message = null;
