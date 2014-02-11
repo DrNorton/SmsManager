@@ -15,7 +15,7 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     d:DataContext="{Binding Source={d:DesignInstance Type=designViewModel:DesignAddSheduleViewModel, IsDesignTimeCreatable=True}}"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True" d:DesignHeight="768" d:DesignWidth="480">
     <i:Interaction.Behaviors>
         <mvvm:ViewModelBehavior/>
     </i:Interaction.Behaviors>
@@ -27,16 +27,30 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Выбор контактов" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="Создание расписания" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
+        <StackPanel Grid.Row="1">
+            <ListBox SelectedIndex="{Binding SelectedId,Mode=TwoWay}">
+                <ListBoxItem>
+                    <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+                        <Image Width="64" Height="64" Source="{Binding AccountImage}"/>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="1" Text="{Binding AccountName}" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+                    </Grid>
+                </ListBoxItem>
+                
+                <ListBoxItem>
+                    <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeLarge}" TextWrapping="Wrap" Text="{Binding Telephone}"/>
+                </ListBoxItem>
+            </ListBox>
+     
+    </StackPanel>
 
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <ListBox ItemsSource="{Binding ListBoxItems,Mode=TwoWay}" SelectedItem="{Binding SelectedListBoxItem,Mode=TwoWay}" DisplayMemberPath="Name"/>
-        </Grid>
     </Grid>
 
 </phone:PhoneApplicationPage>

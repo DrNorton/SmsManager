@@ -37,3 +37,4 @@ C:\Users\drnor_000\Documents\GitHub\SmsManager\Phone7.Fx\obj\Debug\Controls\Load
 C:\Users\drnor_000\Documents\GitHub\SmsManager\Phone7.Fx\obj\Debug\Phone7.Fx.g.resources
 C:\Users\drnor_000\Documents\GitHub\SmsManager\Phone7.Fx\obj\Debug\Phone7.Fx.dll
 C:\Users\drnor_000\Documents\GitHub\SmsManager\Phone7.Fx\obj\Debug\Phone7.Fx.pdb
+C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\Phone7.Fx\obj\Debug\Phone7.Fx.csprojResolveAssemblyReference.cache

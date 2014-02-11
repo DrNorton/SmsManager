@@ -9,6 +9,7 @@ using SmsManager.DataLayer.Repositories.Base;
 using SmsManager.Infrastructure.IRepositories;
 using SmsManager.Services;
 using SmsManager.Services.Base;
+using SmsManager.Visual.Models;
 
 namespace SmsManager.Visual
 {
@@ -31,6 +32,7 @@ namespace SmsManager.Visual
             Container.Current.RegisterType<ISmsSenderService, SmsSenderService>();
             Container.Current.RegisterType<ICelebritySyncService, CelebritySyncService>();
             Container.Current.RegisterType<ISmsSheduleRepository, SmsSheduleRepository>();
+            Container.Current.RegisterType<INewShedule,NewShedule>();
         }
 
         private SmsDataContext CreateDataBaseAndFillTestData(SmsDataContext db)
@@ -63,8 +65,17 @@ namespace SmsManager.Visual
                     Name = "Раз в день",
                     Seconds = 0
                 };
+
+                var telephone = new Telephone(){
+                    Id = 1,
+                    ContactId = 1,
+                    KindId = 1,
+                    TelephoneNumber = "89166728879"
+                };
+                contact.Telephones.Add(telephone);
                 db.Periodics.InsertOnSubmit(periodic);
                 db.Contacts.InsertOnSubmit(contact);
+                db.Telephones.InsertOnSubmit(telephone);
                 var smsTask = new SmsTask() { Id = 1, IsExecuted = false, IsGeocoding = false, SheduleId = 1 };
                 var tasks = new EntitySet<SmsTask>();
                 tasks.Add(smsTask);

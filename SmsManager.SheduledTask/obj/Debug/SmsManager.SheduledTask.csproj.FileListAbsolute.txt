@@ -42,3 +42,5 @@ C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.SheduledTask\Bin\Debug
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.SheduledTask\obj\Debug\SmsManager.SheduledTask.csprojResolveAssemblyReference.cache
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.SheduledTask\obj\Debug\SmsManager.SheduledTask.dll
 C:\Users\drnor_000\Documents\GitHub\SmsManager\SmsManager.SheduledTask\obj\Debug\SmsManager.SheduledTask.pdb
+C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.SheduledTask\Bin\Debug\SmsManager.Infrastructure.dll
+C:\Users\ПРОГРАММИСТ-2\Documents\GitHub\SmsManager\SmsManager.SheduledTask\Bin\Debug\SmsManager.Infrastructure.pdb

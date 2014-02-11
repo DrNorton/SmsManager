@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Media;
 using Phone7.Fx.Ioc;
 using Phone7.Fx.Mvvm;
 using Phone7.Fx.Navigation;
+using SmsManager.Infrastructure;
+using SmsManager.Visual.Models;
 using SmsManager.Visual.ViewModels.CategorySms;
 using SmsManager.Visual.Views.Shedule;
 
@@ -14,60 +17,72 @@ namespace SmsManager.Visual.ViewModels.Shedule
     public class AddSheduleViewModel:ViewModelBase
     {
         private readonly INavigationService _navigationService;
-        private IList<ListBoxNavigationItem> _listBoxItems;
-        private ListBoxNavigationItem _selectedListBoxItem;
-            
-            [Injection]
-        public AddSheduleViewModel(INavigationService navigationService)
-        {
+        private readonly INewShedule _newShedule;
+        private int _selectedId;
+
+        [Injection]
+        public AddSheduleViewModel(INavigationService navigationService,INewShedule newShedule){
                 _navigationService = navigationService;
-                ListBoxItems=new List<ListBoxNavigationItem>();
-            ListBoxItems.Add(new ListBoxNavigationItem(){Name = "Выбрать из списка контактов",NavigationAction = new Action(NavigateToGetContactViewModel)});
+                _newShedule = newShedule;
         }
 
-        private void NavigateToGetContactViewModel()
-        {
+        public ImageSource AccountImage{
+            get{
+                if (_newShedule.ContactDto != null){
+                    return _newShedule.ContactDto.BitmapImage;
+                }
+                return Extensions.GetUnknownPersonImage();
+            }
+        }
+        public string AccountName{
+            get{
+                if (_newShedule.ContactDto != null){
+                    return _newShedule.ContactDto.DisplayName;
+                }
+                else{
+                    return "Выберите контакт";
+                }
+            }
+        }
+
+        public string Telephone{
+            get{
+                if (_newShedule.Telephone != null){
+                    return _newShedule.Telephone.TelephoneNumber.ToString();
+                }
+                return "Выберите телефон";
+            }
+        }
+
+        public int SelectedId{
+            get { return _selectedId; }
+            set{
+                _selectedId = value;
+                DoActionForSelectedItem(value);
+                base.RaisePropertyChanged(()=>SelectedId);
+            }
+        }
+
+        private void DoActionForSelectedItem(int value){
+            switch (value){
+                case 0:
+                    GetContact();
+                    break;
+                   
+                case 1:
+                    GetTelephoneKind();
+                    break;
+            }
+        }
+
+        private void GetTelephoneKind(){
+            if(_newShedule.ContactDto!=null)
+                _navigationService.UriFor<NewSheduleTelephoneKindChooserViewModel>().WithParam(x => x.SelectedContactId, _newShedule.ContactDto.Id).Navigate();
+        }
+
+        private void GetContact(){
             _navigationService.UriFor<NewSheduleContactChooseViewModel>().Navigate();
         }
-
-        public IList<ListBoxNavigationItem> ListBoxItems
-        {
-            get { return _listBoxItems; }
-            set
-            {
-                _listBoxItems = value;
-                base.RaisePropertyChanged(()=>ListBoxItems);
-            }
-        }
-
-        public ListBoxNavigationItem SelectedListBoxItem
-        {
-            get { return _selectedListBoxItem; }
-            set
-            {
-                _selectedListBoxItem = value;
-                SelectedListBoxItemNavigation();
-                base.RaisePropertyChanged(()=>SelectedListBoxItem);
-            }
-        }
-
-        private void SelectedListBoxItemNavigation()
-        {
-            if (_selectedListBoxItem != null)
-            {
-                _selectedListBoxItem.NavigationAction.Invoke();
-            }
-        }
-
-        public override void InitalizeData()
-        {
-            base.InitalizeData();
-        }
     }
 
-    public class ListBoxNavigationItem
-    {
-        public string Name { get; set; }
-        public Action NavigationAction { get; set; }
-    }
 }

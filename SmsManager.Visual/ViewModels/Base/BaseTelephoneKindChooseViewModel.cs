@@ -34,7 +34,9 @@ namespace SmsManager.Visual.ViewModels.Base
 
         public override void InitalizeData()
         {
-            SelectedContact = _contactRepository.GetItem(SelectedContactId);
+            if (SelectedContactId != 0){
+                SelectedContact = _contactRepository.GetItem(SelectedContactId);
+            }
             base.InitalizeData();
         }
 

@@ -76,6 +76,7 @@
     </Compile>
     <Compile Include="Extensions\AlphaKeyGroup.cs" />
     <Compile Include="Models\MainMenuItem.cs" />
+    <Compile Include="Models\NewShedule.cs" />
     <Compile Include="ViewModels\Base\BaseContactChooseViewModel.cs" />
     <Compile Include="ViewModels\Base\BaseTelephoneKindChooseViewModel.cs" />
     <Compile Include="ViewModels\CalendarViewModel.cs" />
@@ -196,7 +197,6 @@
     </Content>
     <Resource Include="Content\Images\appbar.back.png" />
     <Resource Include="Content\Images\appbar.next.png" />
-    <Content Include="Content\Images\unknown.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="SplashScreenImage.jpg" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />

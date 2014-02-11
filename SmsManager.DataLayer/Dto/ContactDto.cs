@@ -17,6 +17,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using SmsManager.DataLayer.Entities;
+using SmsManager.Infrastructure;
 using SmsManager.Infrastructure.Entities.Dto;
 
 namespace SmsManager.DataLayer.Dto
@@ -66,9 +67,8 @@ namespace SmsManager.DataLayer.Dto
                 if (Photo != null){
                     try
                     {
-                        if (Photo.Count() == 0)
-                        {
-                            return GetUnknownPersonImage();
+                        if (Photo.Count() == 0){
+                            return Extensions.GetUnknownPersonImage();
                         }
                         using (MemoryStream stream = new MemoryStream(Photo))
                         {
@@ -84,17 +84,12 @@ namespace SmsManager.DataLayer.Dto
                     }
                 }
                 else{
-                    return GetUnknownPersonImage();
+                    return Extensions.GetUnknownPersonImage();
                 }
             }
         }
 
-        private BitmapSource GetUnknownPersonImage()
-        {
-            BitmapImage tn = new BitmapImage();
-            tn.SetSource(Application.GetResourceStream(new Uri(@"Content/Images/unknown.png", UriKind.Relative)).Stream);
-            return tn;
-        }
+        
 
         public Contact ToEntityContact()
         {
