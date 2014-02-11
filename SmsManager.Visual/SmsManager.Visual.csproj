@@ -92,8 +92,6 @@
     <Compile Include="ViewModels\Shedule\AddSheduleViewModel.cs" />
     <Compile Include="ViewModels\Shedule\AllSheduleViewModel.cs" />
     <Compile Include="ViewModels\Shedule\NewSheduleContactChooseViewModel.cs" />
-    <Compile Include="ViewModels\Shedule\NewShedulePeriodicAndTypeSetViewModel.cs" />
-    <Compile Include="ViewModels\Shedule\NewSheduleTelephoneKindChooserViewModel.cs" />
     <Compile Include="ViewModels\SyncViewModel.cs" />
     <Compile Include="ViewModels\CategorySms\CategoryTelephoneKindChooseViewModel.cs" />
     <Compile Include="Views\CalendarView.xaml.cs">

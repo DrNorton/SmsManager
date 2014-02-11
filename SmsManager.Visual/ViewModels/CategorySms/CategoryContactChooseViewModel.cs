@@ -8,7 +8,7 @@ using SmsManager.Visual.Views;
 
 namespace SmsManager.Visual.ViewModels.CategorySms
 {
-    [ViewModel(typeof(ContactChooseView))]
+   
     public class CategoryContactChooseViewModel:BaseContactChooseViewModel, IContactChooseViewModel
     {
         public string ChoosedMessageText { get; set; }

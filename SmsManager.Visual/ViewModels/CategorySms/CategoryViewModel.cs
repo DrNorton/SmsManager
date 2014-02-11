@@ -10,7 +10,7 @@ using SmsManager.Visual.Views;
 
 namespace SmsManager.Visual.ViewModels.CategorySms
 {
-    [ViewModel(typeof(CategoryView))]
+   
     public class CategoryViewModel : ViewModelBase
     {
         private readonly IDatabaseService _dataService;

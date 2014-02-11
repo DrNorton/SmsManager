@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Media;
+using Phone7.Fx.Commands;
 using Phone7.Fx.Ioc;
 using Phone7.Fx.Mvvm;
 using Phone7.Fx.Navigation;
+using SmsManager.DataLayer.Dto;
 using SmsManager.Infrastructure;
 using SmsManager.Visual.Models;
 using SmsManager.Visual.ViewModels.CategorySms;
@@ -18,12 +20,14 @@ namespace SmsManager.Visual.ViewModels.Shedule
     {
         private readonly INavigationService _navigationService;
         private readonly INewShedule _newShedule;
-        private int _selectedId;
+        public DelegateCommand<object> GetContactCommand { get; set; }
+
 
         [Injection]
         public AddSheduleViewModel(INavigationService navigationService,INewShedule newShedule){
-                _navigationService = navigationService;
-                _newShedule = newShedule;
+            _navigationService = navigationService;
+            _newShedule = newShedule;
+            GetContactCommand=new DelegateCommand<object>(GetContact);
         }
 
         public ImageSource AccountImage{
@@ -45,42 +49,17 @@ namespace SmsManager.Visual.ViewModels.Shedule
             }
         }
 
-        public string Telephone{
+        public IEnumerable<TelephoneDto> Telephones{
             get{
-                if (_newShedule.Telephone != null){
-                    return _newShedule.Telephone.TelephoneNumber.ToString();
+                if (_newShedule.ContactDto != null)
+                {
+                    return _newShedule.ContactDto.Telephones;
                 }
-                return "Выберите телефон";
+              return new List<TelephoneDto>();
             }
         }
 
-        public int SelectedId{
-            get { return _selectedId; }
-            set{
-                _selectedId = value;
-                DoActionForSelectedItem(value);
-                base.RaisePropertyChanged(()=>SelectedId);
-            }
-        }
-
-        private void DoActionForSelectedItem(int value){
-            switch (value){
-                case 0:
-                    GetContact();
-                    break;
-                   
-                case 1:
-                    GetTelephoneKind();
-                    break;
-            }
-        }
-
-        private void GetTelephoneKind(){
-            if(_newShedule.ContactDto!=null)
-                _navigationService.UriFor<NewSheduleTelephoneKindChooserViewModel>().WithParam(x => x.SelectedContactId, _newShedule.ContactDto.Id).Navigate();
-        }
-
-        private void GetContact(){
+        private void GetContact(object param){
             _navigationService.UriFor<NewSheduleContactChooseViewModel>().Navigate();
         }
     }

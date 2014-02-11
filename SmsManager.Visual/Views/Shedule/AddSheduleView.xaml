@@ -9,6 +9,8 @@
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:mvvm="clr-namespace:Phone7.Fx.Mvvm;assembly=Phone7.Fx"
     xmlns:designViewModel="clr-namespace:SmsManager.Visual.ViewModels.DesignViewModel"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -32,24 +34,47 @@
             <TextBlock x:Name="PageTitle" Text="Создание расписания" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <ListBox SelectedIndex="{Binding SelectedId,Mode=TwoWay}">
-                <ListBoxItem>
+          <Button Command="{Binding GetContactCommand}">
+              <Button.Content>
                     <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="7*"/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="7*"/>
+                        </Grid.ColumnDefinitions>
                         <Image Width="64" Height="64" Source="{Binding AccountImage}"/>
                         <TextBlock TextWrapping="Wrap" Grid.Column="1" Text="{Binding AccountName}" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeLarge}"/>
                     </Grid>
-                </ListBoxItem>
-                
-                <ListBoxItem>
-                    <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeLarge}" TextWrapping="Wrap" Text="{Binding Telephone}"/>
-                </ListBoxItem>
+                </Button.Content>
+          </Button>
+          <ListBox ItemsSource="{Binding Telephones}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding TelephoneNumber}" TextWrapping="Wrap"
+                                           FontSize="{StaticResource PhoneFontSizeExtraLarge}" 
+                                           Margin="0,12,0,0"
+                                           FontFamily="{StaticResource PhoneFontFamilySemiLight}"/>
+                            <TextBlock Text="{Binding Kind}" TextWrapping="Wrap"
+                                           Margin="0,-6,0,0"
+                                           Foreground="{StaticResource PhoneSubtleBrush}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
-     
-    </StackPanel>
+            <TextBlock Text="телефон:"   Style="{StaticResource PhoneTextNormalStyle}"/>
+          <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeLarge}" TextWrapping="Wrap" Text="{Binding Telephone}"/>
+            <TextBlock Text="переодичность" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <toolkit:ListPicker Header="">
+                <system:String>Раз в год</system:String>
+                <system:String>Раз в месяц</system:String>
+                <system:String>Раз в неделю</system:String>
+                <system:String>Раз в день</system:String>
+            </toolkit:ListPicker>
+            <TextBlock Text="Выберите стартовую дату" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <toolkit:DatePicker />
+            <TextBlock Text="Выберите стартовое время" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <toolkit:TimePicker />
+        </StackPanel>
 
     </Grid>
 
